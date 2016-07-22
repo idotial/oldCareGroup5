@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.university.module.dao.impl.TChangeDAOImpl">
+
+
+	<resultMap id="TChangeMap" type="com.eshore.university.module.pojo.TChange">
+				<result property="oldId" column="old_id" />
+				<result property="rawId" column="raw_id" />
+				<result property="nowId" column="now_id" />
+				<result property="state" column="state" />
+				<result property="pay" column="pay" />
+				<result property="changeId" column="change_id" />
+			</resultMap>
+
+	
+  <select id="select" resultMap="TChangeMap" useCache="true"> 
+   SELECT 
+   *
+   FROM t_change A
+  <where>	
+  					<if test="oldId != null">
+			 ( old_id = #{oldId,jdbcType=INTEGER})
+								</if>
+						<if test="rawId != null">
+			 AND  ( raw_id = #{rawId,jdbcType=INTEGER})
+								</if>
+						<if test="nowId != null">
+			 AND  ( now_id = #{nowId,jdbcType=INTEGER})
+								</if>
+						<if test="state != null">
+			 AND  ( state = #{state,jdbcType=VARCHAR})
+								</if>
+						<if test="pay != null">
+			 AND  ( pay = #{pay,jdbcType=DOUBLE})
+								</if>
+						<if test="changeId != null">
+			 AND  ( change_id = #{changeId,jdbcType=INTEGER})
+											</if>
+			</where>
+	    
+  </select>  
+
+
+	<select id="selectByKey" resultMap="TChangeMap"
+		useCache="true">
+		SELECT * FROM t_change
+		WHERE change_id=#{changeId,jdbcType=INTEGER}
+		
+	</select>
+
+	<select id="selectWithTranslation" resultMap="TChangeMap" useCache="true">
+        SELECT
+        *
+        FROM t_change A
+        <where>	
+  					<if test="oldId != null">
+			 ( old_id = #{oldId,jdbcType=INTEGER})
+								</if>
+						<if test="rawId != null">
+			 AND  ( raw_id = #{rawId,jdbcType=INTEGER})
+								</if>
+						<if test="nowId != null">
+			 AND  ( now_id = #{nowId,jdbcType=INTEGER})
+								</if>
+						<if test="state != null">
+			 AND  ( state = #{state,jdbcType=VARCHAR})
+								</if>
+						<if test="pay != null">
+			 AND  ( pay = #{pay,jdbcType=DOUBLE})
+								</if>
+						<if test="changeId != null">
+			 AND  ( change_id = #{changeId,jdbcType=INTEGER})
+											</if>
+			</where>
+        FOR UPDATE NOWAIT 
+    </select>
+    
+	<update id="updateByKey"> 
+    UPDATE t_change
+    <set>
+    		    		    				<if test="oldId != null">
+			old_id=#{oldId,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="rawId != null">
+			raw_id=#{rawId,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="nowId != null">
+			now_id=#{nowId,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="state != null">
+			state=#{state,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="pay != null">
+			pay=#{pay,jdbcType=DOUBLE},
+			</if>
+			    		    				<if test="changeId != null">
+			change_id=#{changeId,jdbcType=INTEGER},
+			</if>
+		    </set>
+    WHERE change_id=#{changeId,jdbcType=INTEGER}
+   </update>  
+ 
+   <delete id="deleteByKey"> 
+    delete from t_change
+    WHERE change_id=#{changeId,jdbcType=INTEGER}
+   </delete>  
+
+   <delete id="deleteBy"> 
+    delete from t_change
+   <where>
+					    			    					<if test="oldId != null">
+					 AND 	( old_id = #{oldId,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="rawId != null">
+					 AND 	( raw_id = #{rawId,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="nowId != null">
+					 AND 	( now_id = #{nowId,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="state != null">
+					 AND 	( state = #{state,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="pay != null">
+					 AND 	( pay = #{pay,jdbcType=DOUBLE})
+									</if>
+					    			    					<if test="changeId != null">
+					 AND 	( change_id = #{changeId,jdbcType=INTEGER})
+									</if>
+						<if test="extraCondition != null">
+				AND ( ${extraCondition} )
+			</if>
+		</where>
+   </delete>  
+	<insert id="insert">
+    INSERT INTO t_change
+    (
+ old_id
+, raw_id
+, now_id
+, state
+, pay
+, change_id
+    ) 
+    VALUES
+    (     	    	    		 #{oldId,jdbcType=INTEGER}
+			    	    		, #{rawId,jdbcType=INTEGER}
+			    	    		, #{nowId,jdbcType=INTEGER}
+			    	    		, #{state,jdbcType=VARCHAR}
+			    	    		, #{pay,jdbcType=DOUBLE}
+			    	    		, #{changeId,jdbcType=INTEGER}
+			    ) 
+   </insert>
+	
+</mapper>
