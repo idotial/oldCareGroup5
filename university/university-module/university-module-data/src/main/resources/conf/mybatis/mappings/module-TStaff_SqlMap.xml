@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.university.module.dao.impl.TStaffDAOImpl">
+
+
+	<resultMap id="TStaffMap" type="com.eshore.university.module.pojo.TStaff">
+				<result property="staffName" column="staff_name" />
+				<result property="phone" column="phone" />
+				<result property="idCard" column="id_card" />
+				<result property="job" column="job" />
+				<result property="upData" column="up_data" />
+				<result property="offData" column="off_data" />
+				<result property="salary" column="salary" />
+				<result property="state" column="state" />
+				<result property="staffId" column="staff_id" />
+			</resultMap>
+
+	
+  <select id="select" resultMap="TStaffMap" useCache="true"> 
+   SELECT 
+   *
+   FROM t_staff A
+  <where>	
+  					<if test="staffName != null">
+			 ( staff_name = #{staffName,jdbcType=VARCHAR})
+								</if>
+						<if test="phone != null">
+			 AND  ( phone = #{phone,jdbcType=VARCHAR})
+								</if>
+						<if test="idCard != null">
+			 AND  ( id_card = #{idCard,jdbcType=VARCHAR})
+								</if>
+						<if test="job != null">
+			 AND  ( job = #{job,jdbcType=VARCHAR})
+								</if>
+						<if test="upData != null">
+			 AND  ( up_data = #{upData,jdbcType=TIMESTAMP})
+								</if>
+						<if test="offData != null">
+			 AND  ( off_data = #{offData,jdbcType=TIMESTAMP})
+								</if>
+						<if test="salary != null">
+			 AND  ( salary = #{salary,jdbcType=DOUBLE})
+								</if>
+						<if test="state != null">
+			 AND  ( state = #{state,jdbcType=VARCHAR})
+								</if>
+						<if test="staffId != null">
+			 AND  ( staff_id = #{staffId,jdbcType=INTEGER})
+											</if>
+			</where>
+	    
+  </select>  
+
+
+	<select id="selectByKey" resultMap="TStaffMap"
+		useCache="true">
+		SELECT * FROM t_staff
+		WHERE staff_id=#{staffId,jdbcType=INTEGER}
+		
+	</select>
+
+	<select id="selectWithTranslation" resultMap="TStaffMap" useCache="true">
+        SELECT
+        *
+        FROM t_staff A
+        <where>	
+  					<if test="staffName != null">
+			 ( staff_name = #{staffName,jdbcType=VARCHAR})
+								</if>
+						<if test="phone != null">
+			 AND  ( phone = #{phone,jdbcType=VARCHAR})
+								</if>
+						<if test="idCard != null">
+			 AND  ( id_card = #{idCard,jdbcType=VARCHAR})
+								</if>
+						<if test="job != null">
+			 AND  ( job = #{job,jdbcType=VARCHAR})
+								</if>
+						<if test="upData != null">
+			 AND  ( up_data = #{upData,jdbcType=TIMESTAMP})
+								</if>
+						<if test="offData != null">
+			 AND  ( off_data = #{offData,jdbcType=TIMESTAMP})
+								</if>
+						<if test="salary != null">
+			 AND  ( salary = #{salary,jdbcType=DOUBLE})
+								</if>
+						<if test="state != null">
+			 AND  ( state = #{state,jdbcType=VARCHAR})
+								</if>
+						<if test="staffId != null">
+			 AND  ( staff_id = #{staffId,jdbcType=INTEGER})
+											</if>
+			</where>
+        FOR UPDATE NOWAIT 
+    </select>
+    
+	<update id="updateByKey"> 
+    UPDATE t_staff
+    <set>
+    		    		    				<if test="staffName != null">
+			staff_name=#{staffName,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="phone != null">
+			phone=#{phone,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="idCard != null">
+			id_card=#{idCard,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="job != null">
+			job=#{job,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="upData != null">
+			up_data=#{upData,jdbcType=TIMESTAMP},
+			</if>
+			    		    				<if test="offData != null">
+			off_data=#{offData,jdbcType=TIMESTAMP},
+			</if>
+			    		    				<if test="salary != null">
+			salary=#{salary,jdbcType=DOUBLE},
+			</if>
+			    		    				<if test="state != null">
+			state=#{state,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="staffId != null">
+			staff_id=#{staffId,jdbcType=INTEGER},
+			</if>
+		    </set>
+    WHERE staff_id=#{staffId,jdbcType=INTEGER}
+   </update>  
+ 
+   <delete id="deleteByKey"> 
+    delete from t_staff
+    WHERE staff_id=#{staffId,jdbcType=INTEGER}
+   </delete>  
+
+   <delete id="deleteBy"> 
+    delete from t_staff
+   <where>
+					    			    					<if test="staffName != null">
+					 AND 	( staff_name = #{staffName,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="phone != null">
+					 AND 	( phone = #{phone,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="idCard != null">
+					 AND 	( id_card = #{idCard,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="job != null">
+					 AND 	( job = #{job,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="upData != null">
+					 AND 	( up_data = #{upData,jdbcType=TIMESTAMP})
+									</if>
+					    			    					<if test="offData != null">
+					 AND 	( off_data = #{offData,jdbcType=TIMESTAMP})
+									</if>
+					    			    					<if test="salary != null">
+					 AND 	( salary = #{salary,jdbcType=DOUBLE})
+									</if>
+					    			    					<if test="state != null">
+					 AND 	( state = #{state,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="staffId != null">
+					 AND 	( staff_id = #{staffId,jdbcType=INTEGER})
+									</if>
+						<if test="extraCondition != null">
+				AND ( ${extraCondition} )
+			</if>
+		</where>
+   </delete>  
+	<insert id="insert">
+    INSERT INTO t_staff
+    (
+ staff_name
+, phone
+, id_card
+, job
+, up_data
+, off_data
+, salary
+, state
+, staff_id
+    ) 
+    VALUES
+    (     	    	    		 #{staffName,jdbcType=VARCHAR}
+			    	    		, #{phone,jdbcType=VARCHAR}
+			    	    		, #{idCard,jdbcType=VARCHAR}
+			    	    		, #{job,jdbcType=VARCHAR}
+			    	    		, #{upData,jdbcType=TIMESTAMP}
+			    	    		, #{offData,jdbcType=TIMESTAMP}
+			    	    		, #{salary,jdbcType=DOUBLE}
+			    	    		, #{state,jdbcType=VARCHAR}
+			    	    		, #{staffId,jdbcType=INTEGER}
+			    ) 
+   </insert>
+	
+</mapper>

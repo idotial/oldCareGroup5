@@ -21,15 +21,15 @@ public class TAdminController extends BaseController<TAdmin> {
 
 	@RequestMapping(value="test")
 	public String test(TAdmin admin){
-		admin.setCreateTime(new Date());
+//		admin.setCreateTime(new Date());
 //		admin.setPower(0);
-		tadminService.save(admin);
-		utils.setRequestAttribute("tadmin", admin);
-		System.out.println(admin.getUsername()+" "+admin.getPassword());
+//		tadminService.save(admin);
+//		utils.setRequestAttribute("tadmin", admin);
+//		System.out.println(admin.getUsername()+" "+admin.getPassword());
 		
-		admin.setAid(5);
-		tadminService.delete(admin.getAid());
-		return getBasePath()+"modify";
+//		admin.setAid(5);
+//		tadminService.delete(admin.getAid());
+		return getBasePath()+"list";
 	}
 	
 	@Override

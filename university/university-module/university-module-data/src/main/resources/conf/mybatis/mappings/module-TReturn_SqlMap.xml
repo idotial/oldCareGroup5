@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.university.module.dao.impl.TReturnDAOImpl">
+
+
+	<resultMap id="TReturnMap" type="com.eshore.university.module.pojo.TReturn">
+				<result property="oldId" column="old_id" />
+				<result property="classId" column="class_id" />
+				<result property="returnTime" column="return_time" />
+				<result property="returnState" column="return_state" />
+				<result property="state" column="state" />
+				<result property="returnId" column="return_id" />
+			</resultMap>
+
+	
+  <select id="select" resultMap="TReturnMap" useCache="true"> 
+   SELECT 
+   *
+   FROM t_return A
+  <where>	
+  					<if test="oldId != null">
+			 ( old_id = #{oldId,jdbcType=INTEGER})
+								</if>
+						<if test="classId != null">
+			 AND  ( class_id = #{classId,jdbcType=INTEGER})
+								</if>
+						<if test="returnTime != null">
+			 AND  ( return_time = #{returnTime,jdbcType=TIMESTAMP})
+								</if>
+						<if test="returnState != null">
+			 AND  ( return_state = #{returnState,jdbcType=VARCHAR})
+								</if>
+						<if test="state != null">
+			 AND  ( state = #{state,jdbcType=VARCHAR})
+								</if>
+						<if test="returnId != null">
+			 AND  ( return_id = #{returnId,jdbcType=INTEGER})
+											</if>
+			</where>
+	    
+  </select>  
+
+
+	<select id="selectByKey" resultMap="TReturnMap"
+		useCache="true">
+		SELECT * FROM t_return
+		WHERE return_id=#{returnId,jdbcType=INTEGER}
+		
+	</select>
+
+	<select id="selectWithTranslation" resultMap="TReturnMap" useCache="true">
+        SELECT
+        *
+        FROM t_return A
+        <where>	
+  					<if test="oldId != null">
+			 ( old_id = #{oldId,jdbcType=INTEGER})
+								</if>
+						<if test="classId != null">
+			 AND  ( class_id = #{classId,jdbcType=INTEGER})
+								</if>
+						<if test="returnTime != null">
+			 AND  ( return_time = #{returnTime,jdbcType=TIMESTAMP})
+								</if>
+						<if test="returnState != null">
+			 AND  ( return_state = #{returnState,jdbcType=VARCHAR})
+								</if>
+						<if test="state != null">
+			 AND  ( state = #{state,jdbcType=VARCHAR})
+								</if>
+						<if test="returnId != null">
+			 AND  ( return_id = #{returnId,jdbcType=INTEGER})
+											</if>
+			</where>
+        FOR UPDATE NOWAIT 
+    </select>
+    
+	<update id="updateByKey"> 
+    UPDATE t_return
+    <set>
+    		    		    				<if test="oldId != null">
+			old_id=#{oldId,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="classId != null">
+			class_id=#{classId,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="returnTime != null">
+			return_time=#{returnTime,jdbcType=TIMESTAMP},
+			</if>
+			    		    				<if test="returnState != null">
+			return_state=#{returnState,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="state != null">
+			state=#{state,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="returnId != null">
+			return_id=#{returnId,jdbcType=INTEGER},
+			</if>
+		    </set>
+    WHERE return_id=#{returnId,jdbcType=INTEGER}
+   </update>  
+ 
+   <delete id="deleteByKey"> 
+    delete from t_return
+    WHERE return_id=#{returnId,jdbcType=INTEGER}
+   </delete>  
+
+   <delete id="deleteBy"> 
+    delete from t_return
+   <where>
+					    			    					<if test="oldId != null">
+					 AND 	( old_id = #{oldId,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="classId != null">
+					 AND 	( class_id = #{classId,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="returnTime != null">
+					 AND 	( return_time = #{returnTime,jdbcType=TIMESTAMP})
+									</if>
+					    			    					<if test="returnState != null">
+					 AND 	( return_state = #{returnState,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="state != null">
+					 AND 	( state = #{state,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="returnId != null">
+					 AND 	( return_id = #{returnId,jdbcType=INTEGER})
+									</if>
+						<if test="extraCondition != null">
+				AND ( ${extraCondition} )
+			</if>
+		</where>
+   </delete>  
+	<insert id="insert">
+    INSERT INTO t_return
+    (
+ old_id
+, class_id
+, return_time
+, return_state
+, state
+, return_id
+    ) 
+    VALUES
+    (     	    	    		 #{oldId,jdbcType=INTEGER}
+			    	    		, #{classId,jdbcType=INTEGER}
+			    	    		, #{returnTime,jdbcType=TIMESTAMP}
+			    	    		, #{returnState,jdbcType=VARCHAR}
+			    	    		, #{state,jdbcType=VARCHAR}
+			    	    		, #{returnId,jdbcType=INTEGER}
+			    ) 
+   </insert>
+	
+</mapper>

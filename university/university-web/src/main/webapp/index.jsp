@@ -9,6 +9,6 @@
 	//直接跳转进入主页面
 	response.setHeader("refresh","0;url =product/product/list");
 %> --%>
-	<a href="module/tadmin/test?username='zzm'&password='123456'">aaaa</a>
+	<a href="module/tadmin/test">aaaa</a>
 </body>
 </html>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.university.module.dao.impl.TRegistDAOImpl">
+
+
+	<resultMap id="TRegistMap" type="com.eshore.university.module.pojo.TRegist">
+				<result property="classId" column="class_id" />
+				<result property="oldId" column="old_id" />
+				<result property="registTime" column="regist_time" />
+				<result property="state" column="state" />
+				<result property="pay" column="pay" />
+				<result property="registId" column="regist_id" />
+			</resultMap>
+
+	
+  <select id="select" resultMap="TRegistMap" useCache="true"> 
+   SELECT 
+   *
+   FROM t_regist A
+  <where>	
+  					<if test="classId != null">
+			 ( class_id = #{classId,jdbcType=INTEGER})
+								</if>
+						<if test="oldId != null">
+			 AND  ( old_id = #{oldId,jdbcType=INTEGER})
+								</if>
+						<if test="registTime != null">
+			 AND  ( regist_time = #{registTime,jdbcType=TIMESTAMP})
+								</if>
+						<if test="state != null">
+			 AND  ( state = #{state,jdbcType=VARCHAR})
+								</if>
+						<if test="pay != null">
+			 AND  ( pay = #{pay,jdbcType=INTEGER})
+								</if>
+						<if test="registId != null">
+			 AND  ( regist_id = #{registId,jdbcType=INTEGER})
+											</if>
+			</where>
+	    
+  </select>  
+
+
+	<select id="selectByKey" resultMap="TRegistMap"
+		useCache="true">
+		SELECT * FROM t_regist
+		WHERE regist_id=#{registId,jdbcType=INTEGER}
+		
+	</select>
+
+	<select id="selectWithTranslation" resultMap="TRegistMap" useCache="true">
+        SELECT
+        *
+        FROM t_regist A
+        <where>	
+  					<if test="classId != null">
+			 ( class_id = #{classId,jdbcType=INTEGER})
+								</if>
+						<if test="oldId != null">
+			 AND  ( old_id = #{oldId,jdbcType=INTEGER})
+								</if>
+						<if test="registTime != null">
+			 AND  ( regist_time = #{registTime,jdbcType=TIMESTAMP})
+								</if>
+						<if test="state != null">
+			 AND  ( state = #{state,jdbcType=VARCHAR})
+								</if>
+						<if test="pay != null">
+			 AND  ( pay = #{pay,jdbcType=INTEGER})
+								</if>
+						<if test="registId != null">
+			 AND  ( regist_id = #{registId,jdbcType=INTEGER})
+											</if>
+			</where>
+        FOR UPDATE NOWAIT 
+    </select>
+    
+	<update id="updateByKey"> 
+    UPDATE t_regist
+    <set>
+    		    		    				<if test="classId != null">
+			class_id=#{classId,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="oldId != null">
+			old_id=#{oldId,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="registTime != null">
+			regist_time=#{registTime,jdbcType=TIMESTAMP},
+			</if>
+			    		    				<if test="state != null">
+			state=#{state,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="pay != null">
+			pay=#{pay,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="registId != null">
+			regist_id=#{registId,jdbcType=INTEGER},
+			</if>
+		    </set>
+    WHERE regist_id=#{registId,jdbcType=INTEGER}
+   </update>  
+ 
+   <delete id="deleteByKey"> 
+    delete from t_regist
+    WHERE regist_id=#{registId,jdbcType=INTEGER}
+   </delete>  
+
+   <delete id="deleteBy"> 
+    delete from t_regist
+   <where>
+					    			    					<if test="classId != null">
+					 AND 	( class_id = #{classId,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="oldId != null">
+					 AND 	( old_id = #{oldId,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="registTime != null">
+					 AND 	( regist_time = #{registTime,jdbcType=TIMESTAMP})
+									</if>
+					    			    					<if test="state != null">
+					 AND 	( state = #{state,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="pay != null">
+					 AND 	( pay = #{pay,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="registId != null">
+					 AND 	( regist_id = #{registId,jdbcType=INTEGER})
+									</if>
+						<if test="extraCondition != null">
+				AND ( ${extraCondition} )
+			</if>
+		</where>
+   </delete>  
+	<insert id="insert">
+    INSERT INTO t_regist
+    (
+ class_id
+, old_id
+, regist_time
+, state
+, pay
+, regist_id
+    ) 
+    VALUES
+    (     	    	    		 #{classId,jdbcType=INTEGER}
+			    	    		, #{oldId,jdbcType=INTEGER}
+			    	    		, #{registTime,jdbcType=TIMESTAMP}
+			    	    		, #{state,jdbcType=VARCHAR}
+			    	    		, #{pay,jdbcType=INTEGER}
+			    	    		, #{registId,jdbcType=INTEGER}
+			    ) 
+   </insert>
+	
+</mapper>

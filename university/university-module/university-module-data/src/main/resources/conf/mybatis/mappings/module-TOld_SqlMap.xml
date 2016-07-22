@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.university.module.dao.impl.TOldDAOImpl">
+
+
+	<resultMap id="TOldMap" type="com.eshore.university.module.pojo.TOld">
+				<result property="username" column="username" />
+				<result property="password" column="password" />
+				<result property="phone" column="phone" />
+				<result property="name" column="name" />
+				<result property="birth" column="birth" />
+				<result property="physical" column="physical" />
+				<result property="sex" column="sex" />
+				<result property="remainder" column="remainder" />
+				<result property="urgent" column="urgent" />
+				<result property="oldId" column="old_id" />
+			</resultMap>
+
+	
+  <select id="select" resultMap="TOldMap" useCache="true"> 
+   SELECT 
+   *
+   FROM t_old A
+  <where>	
+  					<if test="username != null">
+			 ( username = #{username,jdbcType=VARCHAR})
+								</if>
+						<if test="password != null">
+			 AND  ( password = #{password,jdbcType=VARCHAR})
+								</if>
+						<if test="phone != null">
+			 AND  ( phone = #{phone,jdbcType=VARCHAR})
+								</if>
+						<if test="name != null">
+			 AND  ( name = #{name,jdbcType=VARCHAR})
+								</if>
+						<if test="birth != null">
+			 AND  ( birth = #{birth,jdbcType=TIMESTAMP})
+								</if>
+						<if test="physical != null">
+			 AND  ( physical = #{physical,jdbcType=VARCHAR})
+								</if>
+						<if test="sex != null">
+			 AND  ( sex = #{sex,jdbcType=VARCHAR})
+								</if>
+						<if test="remainder != null">
+			 AND  ( remainder = #{remainder,jdbcType=DOUBLE})
+								</if>
+						<if test="urgent != null">
+			 AND  ( urgent = #{urgent,jdbcType=VARCHAR})
+								</if>
+						<if test="oldId != null">
+			 AND  ( old_id = #{oldId,jdbcType=INTEGER})
+											</if>
+			</where>
+	    
+  </select>  
+
+
+	<select id="selectByKey" resultMap="TOldMap"
+		useCache="true">
+		SELECT * FROM t_old
+		WHERE old_id=#{oldId,jdbcType=INTEGER}
+		
+	</select>
+
+	<select id="selectWithTranslation" resultMap="TOldMap" useCache="true">
+        SELECT
+        *
+        FROM t_old A
+        <where>	
+  					<if test="username != null">
+			 ( username = #{username,jdbcType=VARCHAR})
+								</if>
+						<if test="password != null">
+			 AND  ( password = #{password,jdbcType=VARCHAR})
+								</if>
+						<if test="phone != null">
+			 AND  ( phone = #{phone,jdbcType=VARCHAR})
+								</if>
+						<if test="name != null">
+			 AND  ( name = #{name,jdbcType=VARCHAR})
+								</if>
+						<if test="birth != null">
+			 AND  ( birth = #{birth,jdbcType=TIMESTAMP})
+								</if>
+						<if test="physical != null">
+			 AND  ( physical = #{physical,jdbcType=VARCHAR})
+								</if>
+						<if test="sex != null">
+			 AND  ( sex = #{sex,jdbcType=VARCHAR})
+								</if>
+						<if test="remainder != null">
+			 AND  ( remainder = #{remainder,jdbcType=DOUBLE})
+								</if>
+						<if test="urgent != null">
+			 AND  ( urgent = #{urgent,jdbcType=VARCHAR})
+								</if>
+						<if test="oldId != null">
+			 AND  ( old_id = #{oldId,jdbcType=INTEGER})
+											</if>
+			</where>
+        FOR UPDATE NOWAIT 
+    </select>
+    
+	<update id="updateByKey"> 
+    UPDATE t_old
+    <set>
+    		    		    				<if test="username != null">
+			username=#{username,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="password != null">
+			password=#{password,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="phone != null">
+			phone=#{phone,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="name != null">
+			name=#{name,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="birth != null">
+			birth=#{birth,jdbcType=TIMESTAMP},
+			</if>
+			    		    				<if test="physical != null">
+			physical=#{physical,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="sex != null">
+			sex=#{sex,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="remainder != null">
+			remainder=#{remainder,jdbcType=DOUBLE},
+			</if>
+			    		    				<if test="urgent != null">
+			urgent=#{urgent,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="oldId != null">
+			old_id=#{oldId,jdbcType=INTEGER},
+			</if>
+		    </set>
+    WHERE old_id=#{oldId,jdbcType=INTEGER}
+   </update>  
+ 
+   <delete id="deleteByKey"> 
+    delete from t_old
+    WHERE old_id=#{oldId,jdbcType=INTEGER}
+   </delete>  
+
+   <delete id="deleteBy"> 
+    delete from t_old
+   <where>
+					    			    					<if test="username != null">
+					 AND 	( username = #{username,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="password != null">
+					 AND 	( password = #{password,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="phone != null">
+					 AND 	( phone = #{phone,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="name != null">
+					 AND 	( name = #{name,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="birth != null">
+					 AND 	( birth = #{birth,jdbcType=TIMESTAMP})
+									</if>
+					    			    					<if test="physical != null">
+					 AND 	( physical = #{physical,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="sex != null">
+					 AND 	( sex = #{sex,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="remainder != null">
+					 AND 	( remainder = #{remainder,jdbcType=DOUBLE})
+									</if>
+					    			    					<if test="urgent != null">
+					 AND 	( urgent = #{urgent,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="oldId != null">
+					 AND 	( old_id = #{oldId,jdbcType=INTEGER})
+									</if>
+						<if test="extraCondition != null">
+				AND ( ${extraCondition} )
+			</if>
+		</where>
+   </delete>  
+	<insert id="insert">
+    INSERT INTO t_old
+    (
+ username
+, password
+, phone
+, name
+, birth
+, physical
+, sex
+, remainder
+, urgent
+, old_id
+    ) 
+    VALUES
+    (     	    	    		 #{username,jdbcType=VARCHAR}
+			    	    		, #{password,jdbcType=VARCHAR}
+			    	    		, #{phone,jdbcType=VARCHAR}
+			    	    		, #{name,jdbcType=VARCHAR}
+			    	    		, #{birth,jdbcType=TIMESTAMP}
+			    	    		, #{physical,jdbcType=VARCHAR}
+			    	    		, #{sex,jdbcType=VARCHAR}
+			    	    		, #{remainder,jdbcType=DOUBLE}
+			    	    		, #{urgent,jdbcType=VARCHAR}
+			    	    		, #{oldId,jdbcType=INTEGER}
+			    ) 
+   </insert>
+	
+</mapper>

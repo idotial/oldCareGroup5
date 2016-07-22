@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.university.module.dao.impl.TTimeDAOImpl">
+
+
+	<resultMap id="TTimeMap" type="com.eshore.university.module.pojo.TTime">
+				<result property="startTime" column="start_time" />
+				<result property="endTime" column="end_time" />
+				<result property="classId" column="class_id" />
+				<result property="info" column="info" />
+				<result property="timeId" column="time_id" />
+			</resultMap>
+
+	
+  <select id="select" resultMap="TTimeMap" useCache="true"> 
+   SELECT 
+   *
+   FROM t_time A
+  <where>	
+  					<if test="startTime != null">
+			 ( start_time = #{startTime,jdbcType=VARCHAR})
+								</if>
+						<if test="endTime != null">
+			 AND  ( end_time = #{endTime,jdbcType=VARCHAR})
+								</if>
+						<if test="classId != null">
+			 AND  ( class_id = #{classId,jdbcType=INTEGER})
+								</if>
+						<if test="info != null">
+			 AND  ( info = #{info,jdbcType=VARCHAR})
+								</if>
+						<if test="timeId != null">
+			 AND  ( time_id = #{timeId,jdbcType=INTEGER})
+											</if>
+			</where>
+	    
+  </select>  
+
+
+	<select id="selectByKey" resultMap="TTimeMap"
+		useCache="true">
+		SELECT * FROM t_time
+		WHERE time_id=#{timeId,jdbcType=INTEGER}
+		
+	</select>
+
+	<select id="selectWithTranslation" resultMap="TTimeMap" useCache="true">
+        SELECT
+        *
+        FROM t_time A
+        <where>	
+  					<if test="startTime != null">
+			 ( start_time = #{startTime,jdbcType=VARCHAR})
+								</if>
+						<if test="endTime != null">
+			 AND  ( end_time = #{endTime,jdbcType=VARCHAR})
+								</if>
+						<if test="classId != null">
+			 AND  ( class_id = #{classId,jdbcType=INTEGER})
+								</if>
+						<if test="info != null">
+			 AND  ( info = #{info,jdbcType=VARCHAR})
+								</if>
+						<if test="timeId != null">
+			 AND  ( time_id = #{timeId,jdbcType=INTEGER})
+											</if>
+			</where>
+        FOR UPDATE NOWAIT 
+    </select>
+    
+	<update id="updateByKey"> 
+    UPDATE t_time
+    <set>
+    		    		    				<if test="startTime != null">
+			start_time=#{startTime,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="endTime != null">
+			end_time=#{endTime,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="classId != null">
+			class_id=#{classId,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="info != null">
+			info=#{info,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="timeId != null">
+			time_id=#{timeId,jdbcType=INTEGER},
+			</if>
+		    </set>
+    WHERE time_id=#{timeId,jdbcType=INTEGER}
+   </update>  
+ 
+   <delete id="deleteByKey"> 
+    delete from t_time
+    WHERE time_id=#{timeId,jdbcType=INTEGER}
+   </delete>  
+
+   <delete id="deleteBy"> 
+    delete from t_time
+   <where>
+					    			    					<if test="startTime != null">
+					 AND 	( start_time = #{startTime,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="endTime != null">
+					 AND 	( end_time = #{endTime,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="classId != null">
+					 AND 	( class_id = #{classId,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="info != null">
+					 AND 	( info = #{info,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="timeId != null">
+					 AND 	( time_id = #{timeId,jdbcType=INTEGER})
+									</if>
+						<if test="extraCondition != null">
+				AND ( ${extraCondition} )
+			</if>
+		</where>
+   </delete>  
+	<insert id="insert">
+    INSERT INTO t_time
+    (
+ start_time
+, end_time
+, class_id
+, info
+, time_id
+    ) 
+    VALUES
+    (     	    	    		 #{startTime,jdbcType=VARCHAR}
+			    	    		, #{endTime,jdbcType=VARCHAR}
+			    	    		, #{classId,jdbcType=INTEGER}
+			    	    		, #{info,jdbcType=VARCHAR}
+			    	    		, #{timeId,jdbcType=INTEGER}
+			    ) 
+   </insert>
+	
+</mapper>

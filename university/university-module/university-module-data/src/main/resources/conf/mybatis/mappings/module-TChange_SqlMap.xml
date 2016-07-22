@@ -150,5 +150,4 @@
 			    	    		, #{changeId,jdbcType=INTEGER}
 			    ) 
    </insert>
-	
 </mapper>

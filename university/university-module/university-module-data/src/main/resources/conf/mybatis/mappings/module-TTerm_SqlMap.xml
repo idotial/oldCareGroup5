@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.university.module.dao.impl.TTermDAOImpl">
+
+
+	<resultMap id="TTermMap" type="com.eshore.university.module.pojo.TTerm">
+				<result property="termName" column="term_name" />
+				<result property="startData" column="start_data" />
+				<result property="endData" column="end_data" />
+				<result property="termId" column="term_id" />
+			</resultMap>
+
+	
+  <select id="select" resultMap="TTermMap" useCache="true"> 
+   SELECT 
+   *
+   FROM t_term A
+  <where>	
+  					<if test="termName != null">
+			 ( term_name = #{termName,jdbcType=VARCHAR})
+								</if>
+						<if test="startData != null">
+			 AND  ( start_data = #{startData,jdbcType=TIMESTAMP})
+								</if>
+						<if test="endData != null">
+			 AND  ( end_data = #{endData,jdbcType=TIMESTAMP})
+								</if>
+						<if test="termId != null">
+			 AND  ( term_id = #{termId,jdbcType=INTEGER})
+											</if>
+			</where>
+	    
+  </select>  
+
+
+	<select id="selectByKey" resultMap="TTermMap"
+		useCache="true">
+		SELECT * FROM t_term
+		WHERE term_id=#{termId,jdbcType=INTEGER}
+		
+	</select>
+
+	<select id="selectWithTranslation" resultMap="TTermMap" useCache="true">
+        SELECT
+        *
+        FROM t_term A
+        <where>	
+  					<if test="termName != null">
+			 ( term_name = #{termName,jdbcType=VARCHAR})
+								</if>
+						<if test="startData != null">
+			 AND  ( start_data = #{startData,jdbcType=TIMESTAMP})
+								</if>
+						<if test="endData != null">
+			 AND  ( end_data = #{endData,jdbcType=TIMESTAMP})
+								</if>
+						<if test="termId != null">
+			 AND  ( term_id = #{termId,jdbcType=INTEGER})
+											</if>
+			</where>
+        FOR UPDATE NOWAIT 
+    </select>
+    
+	<update id="updateByKey"> 
+    UPDATE t_term
+    <set>
+    		    		    				<if test="termName != null">
+			term_name=#{termName,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="startData != null">
+			start_data=#{startData,jdbcType=TIMESTAMP},
+			</if>
+			    		    				<if test="endData != null">
+			end_data=#{endData,jdbcType=TIMESTAMP},
+			</if>
+			    		    				<if test="termId != null">
+			term_id=#{termId,jdbcType=INTEGER},
+			</if>
+		    </set>
+    WHERE term_id=#{termId,jdbcType=INTEGER}
+   </update>  
+ 
+   <delete id="deleteByKey"> 
+    delete from t_term
+    WHERE term_id=#{termId,jdbcType=INTEGER}
+   </delete>  
+
+   <delete id="deleteBy"> 
+    delete from t_term
+   <where>
+					    			    					<if test="termName != null">
+					 AND 	( term_name = #{termName,jdbcType=VARCHAR})
+									</if>
+					    			    					<if test="startData != null">
+					 AND 	( start_data = #{startData,jdbcType=TIMESTAMP})
+									</if>
+					    			    					<if test="endData != null">
+					 AND 	( end_data = #{endData,jdbcType=TIMESTAMP})
+									</if>
+					    			    					<if test="termId != null">
+					 AND 	( term_id = #{termId,jdbcType=INTEGER})
+									</if>
+						<if test="extraCondition != null">
+				AND ( ${extraCondition} )
+			</if>
+		</where>
+   </delete>  
+	<insert id="insert">
+    INSERT INTO t_term
+    (
+ term_name
+, start_data
+, end_data
+, term_id
+    ) 
+    VALUES
+    (     	    	    		 #{termName,jdbcType=VARCHAR}
+			    	    		, #{startData,jdbcType=TIMESTAMP}
+			    	    		, #{endData,jdbcType=TIMESTAMP}
+			    	    		, #{termId,jdbcType=INTEGER}
+			    ) 
+   </insert>
+	
+</mapper>
