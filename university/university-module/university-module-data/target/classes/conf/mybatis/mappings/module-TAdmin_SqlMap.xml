@@ -12,6 +12,15 @@
 				<result property="aid" column="aid" />
 			</resultMap>
 
+
+
+<select id="login" resultMap="TAdminMap" parameterType="com.eshore.university.module.pojo.TAdmin">
+	SELECT 
+   *
+   FROM t_admin A
+   WHERE username=#{username,jdbcType=VARCHAR} AND password=#{password,jdbcType=VARCHAR}
+   
+</select>
 	
   <select id="select" resultMap="TAdminMap" useCache="true"> 
    SELECT 

@@ -1,0 +1,12 @@
+com\eshore\university\module\service\impl\TTermServiceImpl.class
+com\eshore\university\module\service\impl\TAdminServiceImpl.class
+com\eshore\university\module\service\impl\TClassServiceImpl.class
+com\eshore\university\module\service\impl\TTimeServiceImpl.class
+com\eshore\university\module\service\impl\TStaffServiceImpl.class
+com\eshore\university\module\service\impl\TChangeServiceImpl.class
+com\eshore\university\module\service\impl\TReturnServiceImpl.class
+com\eshore\university\module\service\impl\TRegistServiceImpl.class
+com\eshore\university\module\service\impl\TCourseServiceImpl.class
+com\eshore\university\module\service\impl\TNoticeServiceImpl.class
+com\eshore\university\module\service\impl\TRoomServiceImpl.class
+com\eshore\university\module\service\impl\TOldServiceImpl.class

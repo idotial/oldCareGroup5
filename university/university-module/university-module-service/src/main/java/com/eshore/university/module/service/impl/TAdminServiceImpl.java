@@ -1,12 +1,14 @@
 package  com.eshore.university.module.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eshore.university.module.service.ITAdminService;
 import com.eshore.university.module.pojo.TAdmin;
-
+import com.eshore.khala.common.model.PageConfig;
 import com.eshore.khala.core.data.api.dao.IBaseDao;
 import com.eshore.khala.core.service.impl.BaseServiceImpl;
 import com.eshore.university.module.dao.ITAdminDAO;
@@ -27,5 +29,10 @@ public class TAdminServiceImpl extends BaseServiceImpl<TAdmin> implements ITAdmi
 	@Override
 	public IBaseDao<TAdmin> getDao() {
 		return (IBaseDao<TAdmin>)tadminDAO;
+	}
+
+	@Override
+	public List<TAdmin> checkLogin(TAdmin t) {
+		return this.tadminDAO.getAdminsByProperty(t);
 	}
 }

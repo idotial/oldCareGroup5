@@ -1,0 +1,12 @@
+com\eshore\university\module\controller\TAdminController.class
+com\eshore\university\module\controller\TReturnController.class
+com\eshore\university\module\controller\TTermController.class
+com\eshore\university\module\controller\TRoomController.class
+com\eshore\university\module\controller\TRegistController.class
+com\eshore\university\module\controller\TClassController.class
+com\eshore\university\module\controller\TTimeController.class
+com\eshore\university\module\controller\TCourseController.class
+com\eshore\university\module\controller\TOldController.class
+com\eshore\university\module\controller\TNoticeController.class
+com\eshore\university\module\controller\TStaffController.class
+com\eshore\university\module\controller\TChangeController.class

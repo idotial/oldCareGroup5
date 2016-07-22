@@ -1,6 +1,7 @@
 package com.eshore.university.module.controller;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,12 @@ public class TAdminController extends BaseController<TAdmin> {
 
 	@Autowired ITAdminService  tadminService;
 
-	@RequestMapping(value="test")
+	/***
+	 * 管理员登陆
+	 * @param admin
+	 * @return
+	 */
+	@RequestMapping(value="adminLogin")
 	public String test(TAdmin admin){
 //		admin.setCreateTime(new Date());
 //		admin.setPower(0);
@@ -29,7 +35,14 @@ public class TAdminController extends BaseController<TAdmin> {
 		
 //		admin.setAid(5);
 //		tadminService.delete(admin.getAid());
-		return getBasePath()+"list";
+		List<TAdmin> list = tadminService.checkLogin(admin);
+		if(list.size() == 1){
+			utils.setSessionAttribute("admin", list.get(0));
+			return "adminMain";
+		}else{
+			utils.setRequestAttribute("err", 1);
+			return "index";
+		}
 	}
 	
 	@Override
