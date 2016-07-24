@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Title: university-module-controller
+Implementation-Version: 1.0.0-SNAPSHOT
+Implementation-Vendor-Id: com.eshore
+Build-Jdk: 1.7.0_67
+Built-By: Zzzz
+Created-By: Maven Integration for Eclipse
+

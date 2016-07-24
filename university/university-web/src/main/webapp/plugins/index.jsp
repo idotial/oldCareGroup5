@@ -97,13 +97,13 @@
             <ul class="nav_ul" id="accordion">
 
                 <li class="active">
-                    <a href="checkUsername"><span class='up-icon up-icon-home'></span>课程信息</a>
+                    <a href="${basePath }/plugins/module/tclass/list.jsp"><span class='up-icon up-icon-home'></span>课程信息</a>
                 </li>
                 <li>
                     <a href="addCourses.html"><span class='up-icon up-icon-file'></span>新增课程</a>
                 </li>
                 <li>
-                    <a href="examine.html"><span class='up-icon up-icon-th-list'></span>审批</a>
+                    <a href="${basePath }/plugins/module/treturn/list.jsp"><span class='up-icon up-icon-th-list'></span>审批</a>
                 </li>
                 <li>
                     <a href="user.html"><span class='up-icon up-icon-th-list'></span>用户信息</a>

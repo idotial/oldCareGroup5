@@ -110,7 +110,7 @@
 		$("#list_search").click(function() {
 			$("#list_pageNum").val("1");
 			$("#name").val($("input[name='nameSerach']").val());
-			$('form[name=list_form]').attr('action', 'list').submit();
+			$('form[name=list_form]').attr('action', 'getAllClass').submit();
 		});
 	});
 </script>

@@ -95,7 +95,9 @@
 <script src="${basePath}/resources/js/jquery.min.js"></script>
 <script src="${basePath}/resources/js/uplan.min.js"></script>
 <script src="${basePath}/resources/js/common.js"></script>
-<script type="text/javascript">
+
+<!-- 测试验证用户名 -->
+<!-- <script type="text/javascript">
 	$("#username").bind("blur",function(){
 		$.ajax({
 			url:"module/tadmin/checkUsername",
@@ -108,6 +110,6 @@
 			}
 		});
 	});
-</script>
+</script> -->
 
 </html>

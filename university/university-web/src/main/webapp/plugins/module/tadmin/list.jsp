@@ -60,11 +60,11 @@
 						<tr>
 							<th class="table-check"><input type="checkbox"
 								onclick="checkAll(this)" /></th>
-							<th>zhanghao</th>
+							<th>账号</th>
 							<th>密码</th>
 							<th>创建时间</th>
 							<th>更改时间</th>
-							<th>power</th>
+							<th>权限</th>
 						</tr>
 					</thead>
 					<tbody>

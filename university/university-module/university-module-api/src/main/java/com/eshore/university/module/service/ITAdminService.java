@@ -24,4 +24,5 @@ public interface ITAdminService extends IBaseService<TAdmin> {
 	 * @return
 	 */
 	public boolean checkUsername(String username);
+	
 }

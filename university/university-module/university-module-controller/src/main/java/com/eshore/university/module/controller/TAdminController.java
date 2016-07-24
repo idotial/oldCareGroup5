@@ -1,5 +1,6 @@
 package com.eshore.university.module.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.eshore.khala.common.model.PageConfig;
 import com.eshore.khala.core.api.IBaseService;
 import com.eshore.khala.core.controller.pub.action.BaseController;
 import com.eshore.university.module.pojo.TAdmin;
@@ -64,6 +66,12 @@ public class TAdminController extends BaseController<TAdmin> {
 			return "redirect:/index.jsp";
 		}
 	}
+	
+	/***
+	 * 验证用户名是否可用
+	 * @param username
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value="checkUsername")
 	public Map<String,String> checkUsername(String username){
@@ -78,6 +86,27 @@ public class TAdminController extends BaseController<TAdmin> {
 			return m;
 		}
 	}
+	
+	/**
+	 * 新增一个管理员
+	 * @param admin
+	 * @return
+	 */
+	@RequestMapping(value="addAdmin")
+	public String addAdmin(TAdmin admin){
+		try {			
+			admin.setPassword(PasswordCreate.getPassword(admin.getPassword()));//密码加密
+			admin.setPower(0);
+			admin.setCreateTime(new Date());
+			tadminService.save(admin);
+			return "redirect:"+getBasePath()+"/findAllAdmin";
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "fail";
+		}
+	}
+	
+	
 	
 	@Override
 	protected String getBasePath() {
