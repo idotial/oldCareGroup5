@@ -18,4 +18,9 @@ public class TAdminDAOImpl extends MyBatisDaoImpl<TAdmin> implements ITAdminDAO{
 		return this.selectBySqlMapId("login", t);
 	}
 
+	@Override
+	public int countUsername(String username) {
+		return this.sqlSessionTemplate.selectOne("checkUsername", username);
+	}
+
 }

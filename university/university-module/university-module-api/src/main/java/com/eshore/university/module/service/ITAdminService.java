@@ -17,4 +17,11 @@ public interface ITAdminService extends IBaseService<TAdmin> {
 	 * @param t	用户信息
 	 */
 	public List<TAdmin> checkLogin(TAdmin t);
+	
+	/***
+	 * 检查用户名是否可用
+	 * @param username
+	 * @return
+	 */
+	public boolean checkUsername(String username);
 }

@@ -12,7 +12,9 @@
 				<result property="aid" column="aid" />
 			</resultMap>
 
-
+<select id="checkUsername" parameterType="String" resultType="int">
+	select count(*) from t_admin A where username=#{username,jdbcType=VARCHAR}
+</select>
 
 <select id="login" resultMap="TAdminMap" parameterType="com.eshore.university.module.pojo.TAdmin">
 	SELECT 

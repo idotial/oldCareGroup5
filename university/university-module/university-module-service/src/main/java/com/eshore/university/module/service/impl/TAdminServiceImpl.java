@@ -35,4 +35,13 @@ public class TAdminServiceImpl extends BaseServiceImpl<TAdmin> implements ITAdmi
 	public List<TAdmin> checkLogin(TAdmin t) {
 		return this.tadminDAO.getAdminsByProperty(t);
 	}
+
+	@Override
+	public boolean checkUsername(String username) {
+		int count = tadminDAO.countUsername(username);
+		if(count > 0){
+			return false;
+		}
+		return true;
+	}
 }

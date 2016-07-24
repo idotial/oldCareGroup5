@@ -17,4 +17,11 @@ public interface ITAdminDAO extends IBaseDao<TAdmin> {
 	 * @return
 	 */
 	public List<TAdmin> getAdminsByProperty(TAdmin t);
+	
+	/***
+	 * 查询当前username
+	 * @param username
+	 * @return
+	 */
+	public int countUsername(String username);
 }

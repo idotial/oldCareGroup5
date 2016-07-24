@@ -34,13 +34,13 @@
 						<div class="up-input-group up-input-group-lg tmpl_mar30">
 							<span class="up-input-group-addon"><span
 								class="up-icon up-icon-user"></span></span> <input type="text"
-								class="up-form-control" name="username" placeholder="用户名"
-								aria-describedby="sizing-addon2">
+								class="up-form-control" id="username" name="username" placeholder="用户名"
+								aria-describedby="sizing-addon2" value="${cookie.username.value }">
 						</div>
 						<div class="up-input-group up-input-group-lg tmpl_mar20">
 							<span class="up-input-group-addon"><span
 								class="up-icon up-icon-lock"></span></span> <input type="password"
-								class="up-form-control" name="password" placeholder="密码"
+								class="up-form-control" name="password" value="${cookie.password.value }" placeholder="密码"
 								aria-describedby="sizing-addon2">
 						</div>
 						<div class="tmpl_mar20">
@@ -95,6 +95,19 @@
 <script src="${basePath}/resources/js/jquery.min.js"></script>
 <script src="${basePath}/resources/js/uplan.min.js"></script>
 <script src="${basePath}/resources/js/common.js"></script>
-
+<script type="text/javascript">
+	$("#username").bind("blur",function(){
+		$.ajax({
+			url:"module/tadmin/checkUsername",
+			dataType:"json",
+			async:true,
+			data:{"username":$("#username").val()},
+			type:"POST",
+			success:function(data){
+				console.log(data.result);
+			}
+		});
+	});
+</script>
 
 </html>
