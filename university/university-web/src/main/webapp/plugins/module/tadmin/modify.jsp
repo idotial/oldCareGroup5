@@ -16,7 +16,7 @@
 						<b class="pl15">TAdmin</b>
 					</div>
 					<div class="box_center">
-						<form action="${basePath}/module/tadmin/addAdmin" method="post"
+						<form action="${basePath}${path}${action}" method="post"
 							class="jqtransform" name="form_item">
 							<c:if test="${!empty model}">
 								<input type="hidden" id="aid" name="aid" value="${model.aid}" />
@@ -36,7 +36,7 @@
 
 									<td class="td_right">密码</td>
 									<td class=""><input id="password" name="password"
-										type="text" class="input-text lh30" value="${model.password}" />
+										type="text" class="input-text lh30" value="********" readonly="readonly"/>
 									</td>
 
 								</tr>

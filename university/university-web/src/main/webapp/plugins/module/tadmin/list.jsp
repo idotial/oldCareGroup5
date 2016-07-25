@@ -2,6 +2,7 @@
 
 <%@include file="/common/common.jsp"%>
 <%@include file="/common/common-ui.jsp"%>
+<%@include file="/common/common-head.jsp" %>
 <!-- content start -->
 <div class="admin-content">
 	<div class="up-cf up-padding">
@@ -15,7 +16,7 @@
 			<div class="up-fl up-cf">
 				<div class="up-btn-toolbar up-fl">
 					<div class="up-btn-group up-btn-group-xs">
-						<button type="button" id="list_add" onclick="window.location.href='${basePath}/plugins/module/tadmin/modify.jsp'" class="up-btn up-btn-default">
+						<button type="button" id="list_add" onclick="window.location.href='${basePath}/module/tadmin/tosave'" class="up-btn up-btn-default">
 							<span class="up-icon-plus"></span> 新增
 						</button>
 						<button type="button" class="up-btn up-btn-default">

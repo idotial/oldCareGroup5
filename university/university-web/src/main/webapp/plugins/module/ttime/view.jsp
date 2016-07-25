@@ -28,16 +28,12 @@
 													${model.endTime}
 											</td>
 				</tr>
-															<td class="form_label">classId:</td>	
-										<td class="form_value">
-													${model.classId}
-											</td>
 															<td class="form_label">info:</td>	
-										<td class="form_value2">
+										<td class="form_value">
 													${model.info}
 											</td>
-				</tr>
-															                 <tr>
+																		</tr>
+					                 <tr>
 	                   <td class="td_right">&nbsp;</td>
 	                   <td class="">
 	                    <!-- <input type="button" name="button" class="btn" id="modle_close" value="返回"> --> 

@@ -35,22 +35,17 @@
 					 						</td>
 					
 									</tr>
-															 <td class="td_right">classId</td>
-					 					 <td class=""><input id="classId" name="classId"  type="text" class="input-text lh30" 
-					 						 		value="${model.classId}" />	
-					 						</td>
-					
 															 <td class="td_right">info</td>
 					 					 <td class=""><input id="info" name="info"  type="text" class="input-text lh30" 
 					 						 		value="${model.info}" />	
 					 						</td>
 					
-									</tr>
-															                 <tr>
+																		</tr>
+					                 <tr>
 	                   <td class="td_right">&nbsp;</td>
 	                   <td class="">
-	                     <input type="button" name="button" class="btn" id="modle_save" value="保存"> 
-	                    <input type="button" name="button" class="btn" value="重置"> 
+	                     <input type="submit" name="button" class="btn" id="modle_save" value="保存"> 
+	                    <input type="reset" name="button" class="btn" value="重置"> 
 	                   </td>
 	                 </tr>
 	               </table>

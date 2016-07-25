@@ -18,7 +18,6 @@ import java.util.Date;
 public class TTime implements Serializable {
 	private String startTime;//
 	private String endTime;//
-	private Integer classId;//
 	private String info;//
 
 	private Integer timeId;//
@@ -49,15 +48,6 @@ public class TTime implements Serializable {
     
     public void setEndTime(String endTime) {
 		this.endTime = endTime;
-    }
-    
-	@Column(name="class_id" , length=10)
-    public Integer getClassId() {
-		return classId;
-    }
-    
-    public void setClassId(Integer classId) {
-		this.classId = classId;
     }
     
 	@Column(name="info" , length=200)

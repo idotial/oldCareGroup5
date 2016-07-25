@@ -11,6 +11,7 @@
 				<result property="totalNum" column="total_num" />
 				<result property="enteredNum" column="entered_num" />
 				<result property="state" column="state" />
+				<result property="timeId" column="time_id" />
 				<result property="classId" column="class_id" />
 			</resultMap>
 
@@ -40,6 +41,9 @@
 								</if>
 						<if test="state != null">
 			 AND  ( state = #{state,jdbcType=VARCHAR})
+								</if>
+						<if test="timeId != null">
+			 AND  ( time_id = #{timeId,jdbcType=INTEGER})
 								</if>
 						<if test="classId != null">
 			 AND  ( class_id = #{classId,jdbcType=INTEGER})
@@ -82,6 +86,9 @@
 						<if test="state != null">
 			 AND  ( state = #{state,jdbcType=VARCHAR})
 								</if>
+						<if test="timeId != null">
+			 AND  ( time_id = #{timeId,jdbcType=INTEGER})
+								</if>
 						<if test="classId != null">
 			 AND  ( class_id = #{classId,jdbcType=INTEGER})
 											</if>
@@ -112,6 +119,9 @@
 			</if>
 			    		    				<if test="state != null">
 			state=#{state,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="timeId != null">
+			time_id=#{timeId,jdbcType=INTEGER},
 			</if>
 			    		    				<if test="classId != null">
 			class_id=#{classId,jdbcType=INTEGER},
@@ -149,6 +159,9 @@
 					    			    					<if test="state != null">
 					 AND 	( state = #{state,jdbcType=VARCHAR})
 									</if>
+					    			    					<if test="timeId != null">
+					 AND 	( time_id = #{timeId,jdbcType=INTEGER})
+									</if>
 					    			    					<if test="classId != null">
 					 AND 	( class_id = #{classId,jdbcType=INTEGER})
 									</if>
@@ -167,6 +180,7 @@
 , total_num
 , entered_num
 , state
+, time_id
 , class_id
     ) 
     VALUES
@@ -177,6 +191,7 @@
 			    	    		, #{totalNum,jdbcType=INTEGER}
 			    	    		, #{enteredNum,jdbcType=INTEGER}
 			    	    		, #{state,jdbcType=VARCHAR}
+			    	    		, #{timeId,jdbcType=INTEGER}
 			    	    		, #{classId,jdbcType=INTEGER}
 			    ) 
    </insert>

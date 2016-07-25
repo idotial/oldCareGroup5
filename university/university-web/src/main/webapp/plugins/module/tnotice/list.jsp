@@ -1,6 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 <%@include file="/common/common.jsp"%>
+<%@include file="/common/common-ui.jsp"%>
+<%@include file="/common/common-head.jsp" %>
 
  <!-- content start -->
   <div class="admin-content">

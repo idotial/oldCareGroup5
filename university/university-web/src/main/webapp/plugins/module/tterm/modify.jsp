@@ -31,21 +31,21 @@
 					
 															 <td class="td_right">startData</td>
 					 					 <td class=""><input id="startData" name="startData"  type="text" class="input-text lh30" 
-					 						 		value="<fmt:formatDate value="${model.startData}" type="both" pattern="yyyy-MM-dd"/>" data-up-datepicker="{format: 'yyyy-mm-dd'}" readonly />
+					 						 		value="<fmt:formatDate value="${model.startData}" type="both" pattern="yyyy-MM-dd"/>" data-up-datepicker="{format: 'yyyy-mm-dd'}"/>
 					 						</td>
 					
 									</tr>
 															 <td class="td_right">endData</td>
 					 					 <td class=""><input id="endData" name="endData"  type="text" class="input-text lh30" 
-					 						 		value="<fmt:formatDate value="${model.endData}" type="both" pattern="yyyy-MM-dd"/>" data-up-datepicker="{format: 'yyyy-mm-dd'}" readonly />
+					 						 		value="<fmt:formatDate value="${model.endData}" type="both" pattern="yyyy-MM-dd"/>" data-up-datepicker="{format: 'yyyy-mm-dd'}"/>
 					 						</td>
 					
 																		</tr>
 					                 <tr>
 	                   <td class="td_right">&nbsp;</td>
 	                   <td class="">
-	                     <input type="button" name="button" class="btn" id="modle_save" value="保存"> 
-	                    <input type="button" name="button" class="btn" value="重置"> 
+	                     <input type="submit" name="button" class="btn" id="modle_save" value="保存"> 
+	                    <input type="reset" name="button" class="btn" value="重置"> 
 	                   </td>
 	                 </tr>
 	               </table>

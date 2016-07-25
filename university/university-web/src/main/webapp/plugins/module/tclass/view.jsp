@@ -50,8 +50,12 @@
 										<td class="form_value">
 													${model.state}
 											</td>
-																		</tr>
-					                 <tr>
+															<td class="form_label">timeId:</td>	
+										<td class="form_value2">
+													${model.timeId}
+											</td>
+				</tr>
+															                 <tr>
 	                   <td class="td_right">&nbsp;</td>
 	                   <td class="">
 	                    <!-- <input type="button" name="button" class="btn" id="modle_close" value="返回"> --> 

@@ -23,6 +23,7 @@ public class TClass implements Serializable {
 	private Integer totalNum;//
 	private Integer enteredNum;//
 	private String state;//
+	private Integer timeId;//
 
 	private Integer classId;//
 	
@@ -97,6 +98,15 @@ public class TClass implements Serializable {
     
     public void setState(String state) {
 		this.state = state;
+    }
+    
+	@Column(name="time_id" , length=10)
+    public Integer getTimeId() {
+		return timeId;
+    }
+    
+    public void setTimeId(Integer timeId) {
+		this.timeId = timeId;
     }
     
 	

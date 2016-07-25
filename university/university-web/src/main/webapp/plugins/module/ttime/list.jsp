@@ -1,7 +1,8 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 <%@include file="/common/common.jsp"%>
-
+<%@include file="/common/common-ui.jsp"%>
+<%@include file="/common/common-head.jsp" %>
  <!-- content start -->
   <div class="admin-content">
  	<div class="up-cf up-padding">
@@ -45,7 +46,6 @@
         				<th class="table-check"><input type="checkbox" onclick="checkAll(this)"/></th>
            														<th >startTime</th>
 														<th >endTime</th>
-														<th >classId</th>
 														<th >info</th>
 							            </tr>
           </thead>
@@ -56,8 +56,6 @@
               													<td title="${rowdata.startTime}" > <a href="${basePath}${path}view/${rowdata.timeId}" class="name">${rowdata.startTime}</a></td>
                 									
 																			<td >${rowdata.endTime}</td>
-													
-																			<td >${rowdata.classId}</td>
 													
 																			<td >${rowdata.info}</td>
 													
