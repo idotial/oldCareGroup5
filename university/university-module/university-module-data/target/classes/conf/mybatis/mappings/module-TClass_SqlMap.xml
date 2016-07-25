@@ -7,11 +7,14 @@
 				<result property="courseId" column="course_id" />
 				<result property="termId" column="term_id" />
 				<result property="staffId" column="staff_id" />
-				<result property="roomId" column="room_id" />
+				<result property="rooma" column="rooma" />
 				<result property="totalNum" column="total_num" />
 				<result property="enteredNum" column="entered_num" />
 				<result property="state" column="state" />
-				<result property="timeId" column="time_id" />
+				<result property="timea" column="timea" />
+				<result property="timeb" column="timeb" />
+				<result property="roomb" column="roomb" />
+				<result property="cname" column="cname" />
 				<result property="classId" column="class_id" />
 			</resultMap>
 
@@ -30,8 +33,8 @@
 						<if test="staffId != null">
 			 AND  ( staff_id = #{staffId,jdbcType=INTEGER})
 								</if>
-						<if test="roomId != null">
-			 AND  ( room_id = #{roomId,jdbcType=INTEGER})
+						<if test="rooma != null">
+			 AND  ( rooma = #{rooma,jdbcType=INTEGER})
 								</if>
 						<if test="totalNum != null">
 			 AND  ( total_num = #{totalNum,jdbcType=INTEGER})
@@ -42,8 +45,17 @@
 						<if test="state != null">
 			 AND  ( state = #{state,jdbcType=VARCHAR})
 								</if>
-						<if test="timeId != null">
-			 AND  ( time_id = #{timeId,jdbcType=INTEGER})
+						<if test="timea != null">
+			 AND  ( timea = #{timea,jdbcType=INTEGER})
+								</if>
+						<if test="timeb != null">
+			 AND  ( timeb = #{timeb,jdbcType=INTEGER})
+								</if>
+						<if test="roomb != null">
+			 AND  ( roomb = #{roomb,jdbcType=INTEGER})
+								</if>
+						<if test="cname != null">
+			 AND  ( cname = #{cname,jdbcType=VARCHAR})
 								</if>
 						<if test="classId != null">
 			 AND  ( class_id = #{classId,jdbcType=INTEGER})
@@ -74,8 +86,8 @@
 						<if test="staffId != null">
 			 AND  ( staff_id = #{staffId,jdbcType=INTEGER})
 								</if>
-						<if test="roomId != null">
-			 AND  ( room_id = #{roomId,jdbcType=INTEGER})
+						<if test="rooma != null">
+			 AND  ( rooma = #{rooma,jdbcType=INTEGER})
 								</if>
 						<if test="totalNum != null">
 			 AND  ( total_num = #{totalNum,jdbcType=INTEGER})
@@ -86,8 +98,17 @@
 						<if test="state != null">
 			 AND  ( state = #{state,jdbcType=VARCHAR})
 								</if>
-						<if test="timeId != null">
-			 AND  ( time_id = #{timeId,jdbcType=INTEGER})
+						<if test="timea != null">
+			 AND  ( timea = #{timea,jdbcType=INTEGER})
+								</if>
+						<if test="timeb != null">
+			 AND  ( timeb = #{timeb,jdbcType=INTEGER})
+								</if>
+						<if test="roomb != null">
+			 AND  ( roomb = #{roomb,jdbcType=INTEGER})
+								</if>
+						<if test="cname != null">
+			 AND  ( cname = #{cname,jdbcType=VARCHAR})
 								</if>
 						<if test="classId != null">
 			 AND  ( class_id = #{classId,jdbcType=INTEGER})
@@ -108,8 +129,8 @@
 			    		    				<if test="staffId != null">
 			staff_id=#{staffId,jdbcType=INTEGER},
 			</if>
-			    		    				<if test="roomId != null">
-			room_id=#{roomId,jdbcType=INTEGER},
+			    		    				<if test="rooma != null">
+			rooma=#{rooma,jdbcType=INTEGER},
 			</if>
 			    		    				<if test="totalNum != null">
 			total_num=#{totalNum,jdbcType=INTEGER},
@@ -120,8 +141,17 @@
 			    		    				<if test="state != null">
 			state=#{state,jdbcType=VARCHAR},
 			</if>
-			    		    				<if test="timeId != null">
-			time_id=#{timeId,jdbcType=INTEGER},
+			    		    				<if test="timea != null">
+			timea=#{timea,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="timeb != null">
+			timeb=#{timeb,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="roomb != null">
+			roomb=#{roomb,jdbcType=INTEGER},
+			</if>
+			    		    				<if test="cname != null">
+			cname=#{cname,jdbcType=VARCHAR},
 			</if>
 			    		    				<if test="classId != null">
 			class_id=#{classId,jdbcType=INTEGER},
@@ -147,8 +177,8 @@
 					    			    					<if test="staffId != null">
 					 AND 	( staff_id = #{staffId,jdbcType=INTEGER})
 									</if>
-					    			    					<if test="roomId != null">
-					 AND 	( room_id = #{roomId,jdbcType=INTEGER})
+					    			    					<if test="rooma != null">
+					 AND 	( rooma = #{rooma,jdbcType=INTEGER})
 									</if>
 					    			    					<if test="totalNum != null">
 					 AND 	( total_num = #{totalNum,jdbcType=INTEGER})
@@ -159,8 +189,17 @@
 					    			    					<if test="state != null">
 					 AND 	( state = #{state,jdbcType=VARCHAR})
 									</if>
-					    			    					<if test="timeId != null">
-					 AND 	( time_id = #{timeId,jdbcType=INTEGER})
+					    			    					<if test="timea != null">
+					 AND 	( timea = #{timea,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="timeb != null">
+					 AND 	( timeb = #{timeb,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="roomb != null">
+					 AND 	( roomb = #{roomb,jdbcType=INTEGER})
+									</if>
+					    			    					<if test="cname != null">
+					 AND 	( cname = #{cname,jdbcType=VARCHAR})
 									</if>
 					    			    					<if test="classId != null">
 					 AND 	( class_id = #{classId,jdbcType=INTEGER})
@@ -176,22 +215,28 @@
  course_id
 , term_id
 , staff_id
-, room_id
+, rooma
 , total_num
 , entered_num
 , state
-, time_id
+, timea
+, timeb
+, roomb
+, cname
 , class_id
     ) 
     VALUES
     (     	    	    		 #{courseId,jdbcType=INTEGER}
 			    	    		, #{termId,jdbcType=INTEGER}
 			    	    		, #{staffId,jdbcType=INTEGER}
-			    	    		, #{roomId,jdbcType=INTEGER}
+			    	    		, #{rooma,jdbcType=INTEGER}
 			    	    		, #{totalNum,jdbcType=INTEGER}
 			    	    		, #{enteredNum,jdbcType=INTEGER}
 			    	    		, #{state,jdbcType=VARCHAR}
-			    	    		, #{timeId,jdbcType=INTEGER}
+			    	    		, #{timea,jdbcType=INTEGER}
+			    	    		, #{timeb,jdbcType=INTEGER}
+			    	    		, #{roomb,jdbcType=INTEGER}
+			    	    		, #{cname,jdbcType=VARCHAR}
 			    	    		, #{classId,jdbcType=INTEGER}
 			    ) 
    </insert>

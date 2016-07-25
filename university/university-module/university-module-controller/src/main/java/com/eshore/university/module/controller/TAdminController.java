@@ -60,7 +60,7 @@ public class TAdminController extends BaseController<TAdmin> {
 				resp.addCookie(cook2);
 			}
 			utils.setSessionAttribute("admin", ta);
-			return "main";
+			return "index";
 		}else{			
 			return "redirect:/index.jsp";
 		}

@@ -28,7 +28,12 @@
 													${model.content}
 											</td>
 				</tr>
-															                 <tr>
+															<td class="form_label">time:</td>	
+										<td class="form_value">
+													<fmt:formatDate value="${model.time}" type="both" pattern="yyyy-MM-dd"/>
+											</td>
+																		</tr>
+					                 <tr>
 	                   <td class="td_right">&nbsp;</td>
 	                   <td class="">
 	                    <!-- <input type="button" name="button" class="btn" id="modle_close" value="返回"> --> 

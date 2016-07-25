@@ -21,9 +21,9 @@
 <link rel="apple-touch-icon-precomposed" href="${basePath }/resources/images/app-icon72x72@2x.png">
 <link rel="stylesheet" href="${basePath }/resources/khala/css/style.css">
 <link rel="stylesheet" href="${basePath }/resources/jquery/datetimepicker/jquery.datetimepicker.css">
-<link rel="stylesheet" href="${basePath }/resources/uplan/css/uplanui.css"/>
+<%-- <link rel="stylesheet" href="${basePath }/resources/uplan/css/uplanui.css"/>
 <link rel="stylesheet" href="${basePath }/resources/uplan/css/uplan.css"/>
-<link rel="stylesheet" href="${basePath }/resources/uplan/css/admin.css">
+<link rel="stylesheet" href="${basePath }/resources/uplan/css/admin.css"> --%>
 
 
 

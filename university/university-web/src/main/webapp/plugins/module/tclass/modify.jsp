@@ -41,8 +41,8 @@
 					 						</td>
 					
 															 <td class="td_right">教室ID</td>
-					 					 <td class=""><input id="roomId" name="roomId"  type="text" class="input-text lh30" 
-					 						 		value="${model.roomId}" />	
+					 					 <td class=""><input id="rooma" name="rooma"  type="text" class="input-text lh30" 
+					 						 		value="${model.rooma}" />	
 					 						</td>
 					
 									</tr>
@@ -62,17 +62,34 @@
 					 						 		value="${model.state}" />	
 					 						</td>
 					
-															 <td class="td_right">timeId</td>
-					 					 <td class=""><input id="timeId" name="timeId"  type="text" class="input-text lh30" 
-					 						 		value="${model.timeId}" />	
+															 <td class="td_right">timea</td>
+					 					 <td class=""><input id="timea" name="timea"  type="text" class="input-text lh30" 
+					 						 		value="${model.timea}" />	
 					 						</td>
 					
 									</tr>
-															                 <tr>
+															 <td class="td_right">timeb</td>
+					 					 <td class=""><input id="timeb" name="timeb"  type="text" class="input-text lh30" 
+					 						 		value="${model.timeb}" />	
+					 						</td>
+					
+															 <td class="td_right">roomb</td>
+					 					 <td class=""><input id="roomb" name="roomb"  type="text" class="input-text lh30" 
+					 						 		value="${model.roomb}" />	
+					 						</td>
+					
+									</tr>
+															 <td class="td_right">班级名</td>
+					 					 <td class=""><input id="cname" name="cname"  type="text" class="input-text lh30" 
+					 						 		value="${model.cname}" />	
+					 						</td>
+					
+																		</tr>
+					                 <tr>
 	                   <td class="td_right">&nbsp;</td>
 	                   <td class="">
-	                     <input type="submit" name="button" class="btn" id="modle_save" value="保存"> 
-	                    <input type="reset" name="button" class="btn" value="重置"> 
+	                     <input type="button" name="button" class="btn" id="modle_save" value="保存"> 
+	                    <input type="button" name="button" class="btn" value="重置"> 
 	                   </td>
 	                 </tr>
 	               </table>

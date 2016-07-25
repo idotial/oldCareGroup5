@@ -34,7 +34,7 @@
 											</td>
 															<td class="form_label">教室ID:</td>	
 										<td class="form_value2">
-													${model.roomId}
+													${model.rooma}
 											</td>
 				</tr>
 															<td class="form_label">totalNum:</td>	
@@ -50,12 +50,26 @@
 										<td class="form_value">
 													${model.state}
 											</td>
-															<td class="form_label">timeId:</td>	
+															<td class="form_label">timea:</td>	
 										<td class="form_value2">
-													${model.timeId}
+													${model.timea}
 											</td>
 				</tr>
-															                 <tr>
+															<td class="form_label">timeb:</td>	
+										<td class="form_value">
+													${model.timeb}
+											</td>
+															<td class="form_label">roomb:</td>	
+										<td class="form_value2">
+													${model.roomb}
+											</td>
+				</tr>
+															<td class="form_label">班级名:</td>	
+										<td class="form_value">
+													${model.cname}
+											</td>
+																		</tr>
+					                 <tr>
 	                   <td class="td_right">&nbsp;</td>
 	                   <td class="">
 	                    <!-- <input type="button" name="button" class="btn" id="modle_close" value="返回"> --> 

@@ -18,6 +18,7 @@ import java.util.Date;
 public class TNotice implements Serializable {
 	private String title;//
 	private String content;//
+	private Date time;//
 
 	private Integer noticeId;//
 	
@@ -47,6 +48,16 @@ public class TNotice implements Serializable {
     
     public void setContent(String content) {
 		this.content = content;
+    }
+    
+    @Temporal(value =TemporalType.DATE)
+	@Column(name="time" , length=19)
+    public Date getTime() {
+		return time;
+    }
+    
+    public void setTime(Date time) {
+		this.time = time;
     }
     
 	

@@ -29,7 +29,7 @@
    *
    FROM t_admin A
   <where>	
-  					<if test="username != null">
+  					<if test="username != null and username !=''">
 			 ( username = #{username,jdbcType=VARCHAR})
 								</if>
 						<if test="password != null">
@@ -150,7 +150,7 @@
 , create_time
 , change_time
 , power
-, aid
+
     ) 
     VALUES
     (     	    	    		 #{username,jdbcType=VARCHAR}
@@ -158,7 +158,7 @@
 			    	    		, #{createTime,jdbcType=TIMESTAMP}
 			    	    		, #{changeTime,jdbcType=TIMESTAMP}
 			    	    		, #{power,jdbcType=INTEGER}
-			    	    		, #{aid,jdbcType=INTEGER}
+			    	 
 			    ) 
    </insert>
 </mapper>

@@ -19,11 +19,14 @@ public class TClass implements Serializable {
 	private Integer courseId;//课程ID
 	private Integer termId;//学期ID
 	private Integer staffId;//教师ID
-	private Integer roomId;//教室ID
+	private Integer rooma;//教室ID
 	private Integer totalNum;//
 	private Integer enteredNum;//
 	private String state;//
-	private Integer timeId;//
+	private Integer timea;//
+	private Integer timeb;//
+	private Integer roomb;//
+	private String cname;//班级名
 
 	private Integer classId;//
 	
@@ -64,13 +67,13 @@ public class TClass implements Serializable {
 		this.staffId = staffId;
     }
     
-	@Column(name="room_id" , length=10)
-    public Integer getRoomId() {
-		return roomId;
+	@Column(name="rooma" , length=10)
+    public Integer getRooma() {
+		return rooma;
     }
     
-    public void setRoomId(Integer roomId) {
-		this.roomId = roomId;
+    public void setRooma(Integer rooma) {
+		this.rooma = rooma;
     }
     
 	@Column(name="total_num" , length=10)
@@ -100,13 +103,40 @@ public class TClass implements Serializable {
 		this.state = state;
     }
     
-	@Column(name="time_id" , length=10)
-    public Integer getTimeId() {
-		return timeId;
+	@Column(name="timea" , length=10)
+    public Integer getTimea() {
+		return timea;
     }
     
-    public void setTimeId(Integer timeId) {
-		this.timeId = timeId;
+    public void setTimea(Integer timea) {
+		this.timea = timea;
+    }
+    
+	@Column(name="timeb" , length=10)
+    public Integer getTimeb() {
+		return timeb;
+    }
+    
+    public void setTimeb(Integer timeb) {
+		this.timeb = timeb;
+    }
+    
+	@Column(name="roomb" , length=10)
+    public Integer getRoomb() {
+		return roomb;
+    }
+    
+    public void setRoomb(Integer roomb) {
+		this.roomb = roomb;
+    }
+    
+	@Column(name="cname" , length=50)
+    public String getCname() {
+		return cname;
+    }
+    
+    public void setCname(String cname) {
+		this.cname = cname;
     }
     
 	

@@ -394,7 +394,7 @@ a:focus{
 }
 #wrap .tmpl_table th,.tmpl_table>tbody>tr>td{
 	border: 0;
-	height: 80px;
+<!--	height: 80px;  -->
   	vertical-align: middle;
 }
 .tmpl_table input[type="checkbox"]{
@@ -784,4 +784,5 @@ a:focus{
 
 /*    修改需替换原来处    */
 .con3_up{background:#fff;  clear:both; margin-bottom:20px; padding-bottom:10px;}
+
 

@@ -48,7 +48,7 @@ public class TAdminServiceImpl extends BaseServiceImpl<TAdmin> implements ITAdmi
 
 	@Override
 	public TAdmin adminLogin(TAdmin t) {
-		t.setPassword(PasswordCreate.getPassword(t.getPassword()));
+//		t.setPassword(PasswordCreate.getPassword(t.getPassword()));
 		List<TAdmin> list = this.checkLogin(t);
 		if(list.size() == 1){
 			return list.get(0);

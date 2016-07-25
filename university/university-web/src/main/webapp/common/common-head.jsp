@@ -15,10 +15,12 @@
 <script type="text/javascript" src="${basePath }/resources/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="${basePath }/resources/khala/js/common.js"></script>
 <script type="text/javascript" src="${basePath }/resources/uplan/js/uplanui.js"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/uplan/css/uplanui.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/uplan/css/uplanui.ext.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/uplan/css/uplan.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/uplan/css/admin.css">  
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/uplan/css/uplanui.css"> --%>
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/uplan/css/uplanui.ext.css"> --%>
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/uplan/css/uplan.css"> --%>
+<%-- <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/uplan/css/admin.css">   --%>
+<link rel="stylesheet" href="${basePath}/resources/css/uplan.min.css">
+<link href="${basePath}/resources/css/style.css" rel="stylesheet">
 <script type="text/javascript">
 var basePath='${basePath}';
 var baseurl='${basePath}${path }';

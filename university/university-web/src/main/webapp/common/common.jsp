@@ -8,5 +8,4 @@ var basePath='${basePath}';
 var baseurl='${basePath}${path }';
 </script>
 
-
  

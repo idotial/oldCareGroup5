@@ -6,6 +6,7 @@
 	<resultMap id="TNoticeMap" type="com.eshore.university.module.pojo.TNotice">
 				<result property="title" column="title" />
 				<result property="content" column="content" />
+				<result property="time" column="time" />
 				<result property="noticeId" column="notice_id" />
 			</resultMap>
 
@@ -20,6 +21,9 @@
 								</if>
 						<if test="content != null">
 			 AND  ( content = #{content,jdbcType=VARCHAR})
+								</if>
+						<if test="time != null">
+			 AND  ( time = #{time,jdbcType=TIMESTAMP})
 								</if>
 						<if test="noticeId != null">
 			 AND  ( notice_id = #{noticeId,jdbcType=INTEGER})
@@ -47,6 +51,9 @@
 						<if test="content != null">
 			 AND  ( content = #{content,jdbcType=VARCHAR})
 								</if>
+						<if test="time != null">
+			 AND  ( time = #{time,jdbcType=TIMESTAMP})
+								</if>
 						<if test="noticeId != null">
 			 AND  ( notice_id = #{noticeId,jdbcType=INTEGER})
 											</if>
@@ -62,6 +69,9 @@
 			</if>
 			    		    				<if test="content != null">
 			content=#{content,jdbcType=VARCHAR},
+			</if>
+			    		    				<if test="time != null">
+			time=#{time,jdbcType=TIMESTAMP},
 			</if>
 			    		    				<if test="noticeId != null">
 			notice_id=#{noticeId,jdbcType=INTEGER},
@@ -84,6 +94,9 @@
 					    			    					<if test="content != null">
 					 AND 	( content = #{content,jdbcType=VARCHAR})
 									</if>
+					    			    					<if test="time != null">
+					 AND 	( time = #{time,jdbcType=TIMESTAMP})
+									</if>
 					    			    					<if test="noticeId != null">
 					 AND 	( notice_id = #{noticeId,jdbcType=INTEGER})
 									</if>
@@ -97,11 +110,13 @@
     (
  title
 , content
+, time
 , notice_id
     ) 
     VALUES
     (     	    	    		 #{title,jdbcType=VARCHAR}
 			    	    		, #{content,jdbcType=VARCHAR}
+			    	    		, #{time,jdbcType=TIMESTAMP}
 			    	    		, #{noticeId,jdbcType=INTEGER}
 			    ) 
    </insert>

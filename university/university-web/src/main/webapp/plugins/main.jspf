@@ -1,0 +1,105 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<body>
+		 <!-- 头部  strat-->
+    <nav class="up-navbar up-navbar-default" id="head">
+        <div class="up-container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="up-navbar-header">
+                <button type="button" class="up-navbar-toggle up-collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="up-sr-only">Toggle navigation</span>
+                    <span class="up-icon-bar"></span>
+                    <span class="up-icon-bar"></span>
+                    <span class="up-icon-bar"></span>
+                </button>
+                <div class="nav_head">
+                    <div class="logo">
+                        <a class="" href="javascript:void(0);">
+                            <span>居家养老管理平台</span>
+                        </a>
+                    </div>
+                    <div class="home">
+                        <a href="">
+                            <span class="up-icon"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="up-collapse up-navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="sidebtn up-navbar-nav up-navbar-left up-hidden-xs">
+                    <a href="javascript:void(0);">
+                        <span class="up-icon up-icon-menu-hamburger"></span>
+                    </a>
+                </div>
+
+                <ul class="up-nav up-navbar-nav up-navbar-right">
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="up-icon up-icon-bell"></span>
+                            <span class="up-badge">0</span>
+                        </a>
+                    </li>
+                    <li class="up-dropdown">
+                        <a href="javascript:void(0);" class="up-dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            ${admin.username }
+                            <span class="up-caret"></span>
+                        </a>
+                        <ul class="up-dropdown-menu" role="menu">
+                            <li>
+                                <a href="javascript:void(0);">修改密码</a>
+                            </li>
+                            <li class="up-divider"></li>
+                            <li>
+                                <a href="javascript:void(0);">更换账号</a>
+                            </li>
+                            <li class="up-divider"></li>
+                            <li>
+                                <a href="javascript:void(0);">注销</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- /.navbar-collapse --> </div>
+        <!-- /.container-fluid --> </nav>
+    <!-- 	头部 end -->
+    <!-- 侧栏start -->
+    <div class="sidebar">
+        <nav class="sidenav">
+           
+            <ul class="nav_ul mynav_ul" id="accordion">
+				
+				<li>
+                    <a href="#collapse1" data-toggle="collapse"><span class='up-icon up-icon-th-list'></span>教学管理<span class="up-icon up-icon-menu-down arrow"></span></a>
+               		<ul class="nav_ul up-collapse" id="collapse1" aria-expanded="false">
+                           <li><a href="${basePath }/module/tcourse/list">课程管理</a></li>
+                           <li><a href="${basePath }/module/tstaff/list">教师管理</a></li>
+                            <li><a href="${basePath }/module/tterm/list">学期管理</a></li>
+                             <li><a href="${basePath }/module/troom/list">教室管理</a></li>
+                              <li><a href="${basePath }/module/tclass/list">班级管理</a></li>
+                      </ul>
+                </li>
+               
+                <li>
+                    <a href="#collapseTwo" data-toggle="collapse"><span class='up-icon up-icon-th-list'></span>管理员<span class="up-icon up-icon-menu-down arrow"></span></a>
+               		<ul class="nav_ul up-collapse" id="collapseTwo" aria-expanded="false">
+                           <li><a href="${basePath }/module/tadmin/list">管理员列表</a></li>
+                           <li><a href="${basePath }/module/tadmin/tosave">添加管理员</a></li>
+                      </ul>
+                </li>
+                <li>
+                    <a href="${basePath }/module/tnotice/list"><span class='up-icon up-icon-cog'></span>通知中心</a>
+                </li>
+                
+                <li>
+                    <a href="${basePath }/index.jsp"><span class='up-icon up-icon-log-out'></span>注销</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- 侧栏end -->
+    
