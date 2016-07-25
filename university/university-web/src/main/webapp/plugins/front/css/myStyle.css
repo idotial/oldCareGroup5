@@ -1,0 +1,168 @@
+.my-right-ul{
+    margin-right:30px;
+}
+.mylog{
+    display: inline-block;
+    font-size: 20px;
+    padding:8px;
+    float: left;
+}
+.my-left-ul{
+   margin-left: 40px;
+}
+.my-left-ul li a{
+    font-size: 16px;
+}
+.my-left-ul li:hover{
+    background: #DDE8F1;
+}
+
+.g-banner {
+    height: 400px;
+    margin: auto;
+    width: 1200px;
+    background:url("../../../resources/images/ad2.jpg");
+    background-size:  100% 100%;
+    position: relative;
+
+}
+.main-content{
+    background: #f0f3f7 none repeat scroll 0 0;
+    min-height: 100%;
+    padding-top:50px;
+}
+
+.menuContent {
+    height: 400px;
+    padding-top: 10px;
+    width: 244px;
+    z-index: 2;
+    background: #333;
+    opacity: 0.7;
+}
+.my-navbar{
+    height:50px;
+    float: left;
+}
+.menuContent .item {
+    cursor: pointer;
+    font-size: 12px;
+    height: 88px;
+    padding-left: 20px;
+
+}
+
+
+.menuContent .item .detail {
+    line-height: 12px;
+    margin-top: 14px;
+}
+.menuContent .item .detail a{
+    padding-right: 10px;
+}
+
+.menuContent .item .box a {
+    color: #fff !important;
+}
+.menuContent .item .box a:hover {
+    color: #2DC0E8 !important;
+}
+.menuContent .item p {
+    color: #fff;
+    font-size: 16px;
+}
+
+.menuContent .item .box {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    height: 83px;
+    padding-top: 25px;
+    width: 204px;
+}
+a:hover{
+    text-decoration:none;
+}
+.menuContent .item:hover {
+    background-color: rgba(7, 17, 27, 0.3);
+}
+
+.menuContent .item:hover  .submenu{
+    display: block;
+}
+.submenu {
+    background-color: #fff;
+    border-color: #d9dde1;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    height: 400px;
+    left: 244px;
+    position: absolute;
+    top: 0px;
+    width: 430px;
+    z-index: 581;
+    background: #333;
+    opacity: 0.9;
+    display: none;
+}
+
+.submenu .innerBox {
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+.submenu .subinnerBox {
+    margin-left: 20px;
+    overflow: hidden;
+    width: 352px;
+}
+
+.submenu .subinnerBox .title, .recommend {
+    margin-top: 34px;
+}
+.submenu .subinnerBox .title {
+    color: #f01414;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+    margin-bottom: 19px;
+    margin-top: 28px;
+}
+
+.submenu .subinnerBox a {
+    color: #ffffff;
+    line-height: 28px;
+    font-size: 16px;
+}
+.ml10 {
+    margin-left: 10px !important;
+}
+
+.rl-modal .in {
+    opacity: 1;
+}
+.login-bg{
+    display: none;
+}
+.rl-modal {
+
+    background-color: #333;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.9;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    z-index: 100000;
+}
+.login-con{
+    background: #fff ;
+    left: 50%;
+    margin: -218px 0 0 -180px;
+    padding-bottom: 30px;
+    position: fixed;
+    top: 50%;
+    transition: all 0.2s ease 0s;
+    width: 360px;
+    z-index: 100000;
+}
