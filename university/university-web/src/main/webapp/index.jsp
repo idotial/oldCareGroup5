@@ -48,8 +48,14 @@
 								type="submit" value="登陆">
 						</div>
 						<div class="login_ex tmpl_mar20">
-							<label for="" class="up-pull-left"><input type="checkbox"
-								value="1" name="rmb">记住账号</label> <a href="javascript:void(0);"
+							<label for="" class="up-pull-left">
+							<c:if test="${empty cookie.username.value }">							
+								<input type="checkbox" value="1" name="rmb">
+							</c:if>
+							<c:if test="${!empty cookie.username.value }">							
+								<input type="checkbox" value="1" name="rmb" checked="checked">
+							</c:if>
+							记住账号</label> <a href="javascript:void(0);"
 								class="up-row up-pull-right">忘记密码 <span class="up-badge">?</span>
 							</a>
 						</div>

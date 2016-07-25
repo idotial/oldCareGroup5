@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eshore.university.module.service.ITAdminService;
+import com.eshore.university.module.util.PasswordCreate;
 import com.eshore.university.module.pojo.TAdmin;
 import com.eshore.khala.common.model.PageConfig;
 import com.eshore.khala.core.data.api.dao.IBaseDao;
@@ -43,5 +44,16 @@ public class TAdminServiceImpl extends BaseServiceImpl<TAdmin> implements ITAdmi
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public TAdmin adminLogin(TAdmin t) {
+		t.setPassword(PasswordCreate.getPassword(t.getPassword()));
+		List<TAdmin> list = this.checkLogin(t);
+		if(list.size() == 1){
+			return list.get(0);
+		}else{
+			return null;
+		}
 	}
 }

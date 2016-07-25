@@ -15,7 +15,7 @@
 			<div class="up-fl up-cf">
 				<div class="up-btn-toolbar up-fl">
 					<div class="up-btn-group up-btn-group-xs">
-						<button type="button" id="list_add" class="up-btn up-btn-default">
+						<button type="button" id="list_add" onclick="window.location.href='${basePath}/plugins/module/tadmin/modify.jsp'" class="up-btn up-btn-default">
 							<span class="up-icon-plus"></span> 新增
 						</button>
 						<button type="button" class="up-btn up-btn-default">
@@ -55,7 +55,7 @@
 				<!-- <table class="up-table up-table-striped up-table-hover table-main"> -->
 				<table class="table">
 					<thead>
-						<input type="hidden" id="name" name="name" value="" />
+						<input type="hidden" id="username" name="username" value="" />
 						<!-- 提交到后台的搜索条件，放name查询条件作为例子 -->
 						<tr>
 							<th class="table-check"><input type="checkbox"
@@ -75,7 +75,7 @@
 								<td title="${rowdata.username}"><a
 									href="${basePath}${path}view/${rowdata.aid}" class="name">${rowdata.username}</a></td>
 
-								<td>${rowdata.password}</td>
+								<td>**********</td>
 
 								<td><fmt:formatDate value="${rowdata.createTime}"
 										type="both" pattern="yyyy-MM-dd" /></td>
@@ -105,7 +105,7 @@
 	$(function() {
 		$("#list_search").click(function() {
 			$("#list_pageNum").val("1");
-			$("#name").val($("input[name='nameSerach']").val());
+			$("#username").val($("input[name='nameSerach']").val());
 			$('form[name=list_form]').attr('action', 'list').submit();
 		});
 	});

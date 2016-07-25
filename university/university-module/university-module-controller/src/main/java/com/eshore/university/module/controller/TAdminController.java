@@ -48,21 +48,20 @@ public class TAdminController extends BaseController<TAdmin> {
 //		tadminService.delete(admin.getAid());
 //登陆		
 		String rmb = req.getParameter("rmb");
-		System.out.println();
 		String pwd = admin.getPassword();
-		admin.setPassword(PasswordCreate.getPassword(admin.getPassword()));
-		List<TAdmin> list = tadminService.checkLogin(admin);
-		if(list.size() == 1){
+		TAdmin ta = tadminService.adminLogin(admin);
+		if(ta!=null){			
 			if(rmb != null){
 				Cookie cook1 = new Cookie("username", admin.getUsername());
 				Cookie cook2 = new Cookie("password", pwd);
+				cook1.setMaxAge(60*60*24*30);
+				cook2.setMaxAge(60*60*24*30);
 				resp.addCookie(cook1);
 				resp.addCookie(cook2);
 			}
-			utils.setSessionAttribute("admin", list.get(0));
-			return "index";
-		}else{
-			utils.setRequestAttribute("err", 1);
+			utils.setSessionAttribute("admin", ta);
+			return "main";
+		}else{			
 			return "redirect:/index.jsp";
 		}
 	}
@@ -99,7 +98,7 @@ public class TAdminController extends BaseController<TAdmin> {
 			admin.setPower(0);
 			admin.setCreateTime(new Date());
 			tadminService.save(admin);
-			return "redirect:"+getBasePath()+"/findAllAdmin";
+			return "redirect:"+this.getBasePath()+"/list";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "fail";
