@@ -4,241 +4,328 @@
 
 
 	<resultMap id="TClassMap" type="com.eshore.university.module.pojo.TClass">
-				<result property="courseId" column="course_id" />
-				<result property="termId" column="term_id" />
-				<result property="staffId" column="staff_id" />
-				<result property="rooma" column="rooma" />
-				<result property="totalNum" column="total_num" />
-				<result property="enteredNum" column="entered_num" />
-				<result property="state" column="state" />
-				<result property="timea" column="timea" />
-				<result property="timeb" column="timeb" />
-				<result property="roomb" column="roomb" />
-				<result property="cname" column="cname" />
-				<result property="classId" column="class_id" />
-			</resultMap>
+		<result property="courseId" column="course_id" />
+		<result property="termId" column="term_id" />
+		<result property="staffId" column="staff_id" />
+		<result property="rooma" column="rooma" />
+		<result property="totalNum" column="total_num" />
+		<result property="enteredNum" column="entered_num" />
+		<result property="state" column="state" />
+		<result property="timea" column="timea" />
+		<result property="timeb" column="timeb" />
+		<result property="roomb" column="roomb" />
+		<result property="cname" column="cname" />
+		<result property="classId" column="class_id" />
+	</resultMap>
 
-	
-  <select id="select" resultMap="TClassMap" useCache="true"> 
-   SELECT 
-   *
-   FROM t_class A
-  <where>	
-  					<if test="courseId != null">
-			 ( course_id = #{courseId,jdbcType=INTEGER})
-								</if>
-						<if test="termId != null">
-			 AND  ( term_id = #{termId,jdbcType=INTEGER})
-								</if>
-						<if test="staffId != null">
-			 AND  ( staff_id = #{staffId,jdbcType=INTEGER})
-								</if>
-						<if test="rooma != null">
-			 AND  ( rooma = #{rooma,jdbcType=INTEGER})
-								</if>
-						<if test="totalNum != null">
-			 AND  ( total_num = #{totalNum,jdbcType=INTEGER})
-								</if>
-						<if test="enteredNum != null">
-			 AND  ( entered_num = #{enteredNum,jdbcType=INTEGER})
-								</if>
-						<if test="state != null">
-			 AND  ( state = #{state,jdbcType=VARCHAR})
-								</if>
-						<if test="timea != null">
-			 AND  ( timea = #{timea,jdbcType=INTEGER})
-								</if>
-						<if test="timeb != null">
-			 AND  ( timeb = #{timeb,jdbcType=INTEGER})
-								</if>
-						<if test="roomb != null">
-			 AND  ( roomb = #{roomb,jdbcType=INTEGER})
-								</if>
-						<if test="cname != null">
-			 AND  ( cname = #{cname,jdbcType=VARCHAR})
-								</if>
-						<if test="classId != null">
-			 AND  ( class_id = #{classId,jdbcType=INTEGER})
-											</if>
-			</where>
-	    
-  </select>  
+	<resultMap type="com.eshore.university.module.pojo.TClassInfo"
+		id="TClassInfoMap">
+		<result property="courseId" column="course_id" />
+		<result property="termId" column="term_id" />
+		<result property="staffId" column="staff_id" />
+		<result property="rooma" column="rooma" />
+		<result property="totalNum" column="total_num" />
+		<result property="enteredNum" column="entered_num" />
+		<result property="state" column="state" />
+		<result property="timea" column="timea" />
+		<result property="timeb" column="timeb" />
+		<result property="roomb" column="roomb" />
+		<result property="cname" column="cname" />
+		<result property="classId" column="class_id" />
 
+		<result property="coursename" column="course_name" />
+		<result property="staffname" column="staff_name" />
+		<result property="termname" column="term_name" />
+		<result property="tinfoa" column="tinfoa" />
+		<result property="tinfob" column="tinfob" />
+		<result property="positiona" column="positiona" />
+		<result property="positionb" column="positionb" />
+	</resultMap>
 
-	<select id="selectByKey" resultMap="TClassMap"
-		useCache="true">
-		SELECT * FROM t_class
+	<select id="select" resultMap="TClassInfoMap" useCache="true">
+		SELECT
+		a.*,b.course_name,c.staff_name,d.term_name,
+		CONCAT(t1.info,':',t1.start_time,'~',t1.end_time) tinfoa,
+		CONCAT(t2.info,':',t2.start_time,'~',t2.end_time) tinfob,
+		r1.position positiona,r2.position positionb
+		FROM
+		t_class a,t_course b,t_staff c,t_term d,t_time t1,t_time t2,t_room r1,t_room
+		r2
+		WHERE
+		a.course_id = b.course_id
+		AND
+		a.staff_id = c.staff_id
+		AND
+		a.term_id = d.term_id
+		AND
+		a.timea = t1.time_id
+		AND
+		a.timeb = t2.time_id
+		AND
+		a.rooma = r1.room_id
+		AND
+		a.roomb = r2.room_id
+		<where>
+			<if test="courseId != null">
+				AND( course_id = #{courseId,jdbcType=INTEGER})
+			</if>
+			<if test="termId != null">
+				AND ( term_id = #{termId,jdbcType=INTEGER})
+			</if>
+			<if test="staffId != null">
+				AND ( staff_id = #{staffId,jdbcType=INTEGER})
+			</if>
+			<if test="rooma != null">
+				AND ( rooma = #{rooma,jdbcType=INTEGER})
+			</if>
+			<if test="totalNum != null">
+				AND ( total_num = #{totalNum,jdbcType=INTEGER})
+			</if>
+			<if test="enteredNum != null">
+				AND ( entered_num = #{enteredNum,jdbcType=INTEGER})
+			</if>
+			<if test="state != null">
+				AND ( state = #{state,jdbcType=VARCHAR})
+			</if>
+			<if test="timea != null">
+				AND ( timea = #{timea,jdbcType=INTEGER})
+			</if>
+			<if test="timeb != null">
+				AND ( timeb = #{timeb,jdbcType=INTEGER})
+			</if>
+			<if test="roomb != null">
+				AND ( roomb = #{roomb,jdbcType=INTEGER})
+			</if>
+			<if test="cname != null">
+				AND ( cname = #{cname,jdbcType=VARCHAR})
+			</if>
+			<if test="classId != null">
+				AND ( class_id = #{classId,jdbcType=INTEGER})
+			</if>
+		</where>
+	</select>
+<!--  
+	<select id="select" resultMap="TClassMap" useCache="true">
+		SELECT
+		*
+		FROM t_class A
+		<where>
+			<if test="courseId != null">
+				( course_id = #{courseId,jdbcType=INTEGER})
+			</if>
+			<if test="termId != null">
+				AND ( term_id = #{termId,jdbcType=INTEGER})
+			</if>
+			<if test="staffId != null">
+				AND ( staff_id = #{staffId,jdbcType=INTEGER})
+			</if>
+			<if test="rooma != null">
+				AND ( rooma = #{rooma,jdbcType=INTEGER})
+			</if>
+			<if test="totalNum != null">
+				AND ( total_num = #{totalNum,jdbcType=INTEGER})
+			</if>
+			<if test="enteredNum != null">
+				AND ( entered_num = #{enteredNum,jdbcType=INTEGER})
+			</if>
+			<if test="state != null">
+				AND ( state = #{state,jdbcType=VARCHAR})
+			</if>
+			<if test="timea != null">
+				AND ( timea = #{timea,jdbcType=INTEGER})
+			</if>
+			<if test="timeb != null">
+				AND ( timeb = #{timeb,jdbcType=INTEGER})
+			</if>
+			<if test="roomb != null">
+				AND ( roomb = #{roomb,jdbcType=INTEGER})
+			</if>
+			<if test="cname != null">
+				AND ( cname = #{cname,jdbcType=VARCHAR})
+			</if>
+			<if test="classId != null">
+				AND ( class_id = #{classId,jdbcType=INTEGER})
+			</if>
+		</where>
+
+	</select>
+-->
+
+	<select id="selectByKey" resultMap="TClassMap" useCache="true">
+		SELECT *
+		FROM t_class
 		WHERE class_id=#{classId,jdbcType=INTEGER}
-		
+
 	</select>
 
-	<select id="selectWithTranslation" resultMap="TClassMap" useCache="true">
-        SELECT
-        *
-        FROM t_class A
-        <where>	
-  					<if test="courseId != null">
-			 ( course_id = #{courseId,jdbcType=INTEGER})
-								</if>
-						<if test="termId != null">
-			 AND  ( term_id = #{termId,jdbcType=INTEGER})
-								</if>
-						<if test="staffId != null">
-			 AND  ( staff_id = #{staffId,jdbcType=INTEGER})
-								</if>
-						<if test="rooma != null">
-			 AND  ( rooma = #{rooma,jdbcType=INTEGER})
-								</if>
-						<if test="totalNum != null">
-			 AND  ( total_num = #{totalNum,jdbcType=INTEGER})
-								</if>
-						<if test="enteredNum != null">
-			 AND  ( entered_num = #{enteredNum,jdbcType=INTEGER})
-								</if>
-						<if test="state != null">
-			 AND  ( state = #{state,jdbcType=VARCHAR})
-								</if>
-						<if test="timea != null">
-			 AND  ( timea = #{timea,jdbcType=INTEGER})
-								</if>
-						<if test="timeb != null">
-			 AND  ( timeb = #{timeb,jdbcType=INTEGER})
-								</if>
-						<if test="roomb != null">
-			 AND  ( roomb = #{roomb,jdbcType=INTEGER})
-								</if>
-						<if test="cname != null">
-			 AND  ( cname = #{cname,jdbcType=VARCHAR})
-								</if>
-						<if test="classId != null">
-			 AND  ( class_id = #{classId,jdbcType=INTEGER})
-											</if>
-			</where>
-        FOR UPDATE NOWAIT 
-    </select>
-    
-	<update id="updateByKey"> 
-    UPDATE t_class
-    <set>
-    		    		    				<if test="courseId != null">
-			course_id=#{courseId,jdbcType=INTEGER},
+	<select id="selectWithTranslation" resultMap="TClassMap"
+		useCache="true">
+		SELECT
+		*
+		FROM t_class A
+		<where>
+			<if test="courseId != null">
+				( course_id = #{courseId,jdbcType=INTEGER})
 			</if>
-			    		    				<if test="termId != null">
-			term_id=#{termId,jdbcType=INTEGER},
+			<if test="termId != null">
+				AND ( term_id = #{termId,jdbcType=INTEGER})
 			</if>
-			    		    				<if test="staffId != null">
-			staff_id=#{staffId,jdbcType=INTEGER},
+			<if test="staffId != null">
+				AND ( staff_id = #{staffId,jdbcType=INTEGER})
 			</if>
-			    		    				<if test="rooma != null">
-			rooma=#{rooma,jdbcType=INTEGER},
+			<if test="rooma != null">
+				AND ( rooma = #{rooma,jdbcType=INTEGER})
 			</if>
-			    		    				<if test="totalNum != null">
-			total_num=#{totalNum,jdbcType=INTEGER},
+			<if test="totalNum != null">
+				AND ( total_num = #{totalNum,jdbcType=INTEGER})
 			</if>
-			    		    				<if test="enteredNum != null">
-			entered_num=#{enteredNum,jdbcType=INTEGER},
+			<if test="enteredNum != null">
+				AND ( entered_num = #{enteredNum,jdbcType=INTEGER})
 			</if>
-			    		    				<if test="state != null">
-			state=#{state,jdbcType=VARCHAR},
+			<if test="state != null">
+				AND ( state = #{state,jdbcType=VARCHAR})
 			</if>
-			    		    				<if test="timea != null">
-			timea=#{timea,jdbcType=INTEGER},
+			<if test="timea != null">
+				AND ( timea = #{timea,jdbcType=INTEGER})
 			</if>
-			    		    				<if test="timeb != null">
-			timeb=#{timeb,jdbcType=INTEGER},
+			<if test="timeb != null">
+				AND ( timeb = #{timeb,jdbcType=INTEGER})
 			</if>
-			    		    				<if test="roomb != null">
-			roomb=#{roomb,jdbcType=INTEGER},
+			<if test="roomb != null">
+				AND ( roomb = #{roomb,jdbcType=INTEGER})
 			</if>
-			    		    				<if test="cname != null">
-			cname=#{cname,jdbcType=VARCHAR},
+			<if test="cname != null">
+				AND ( cname = #{cname,jdbcType=VARCHAR})
 			</if>
-			    		    				<if test="classId != null">
-			class_id=#{classId,jdbcType=INTEGER},
+			<if test="classId != null">
+				AND ( class_id = #{classId,jdbcType=INTEGER})
 			</if>
-		    </set>
-    WHERE class_id=#{classId,jdbcType=INTEGER}
-   </update>  
- 
-   <delete id="deleteByKey"> 
-    delete from t_class
-    WHERE class_id=#{classId,jdbcType=INTEGER}
-   </delete>  
+		</where>
+		FOR UPDATE NOWAIT
+	</select>
 
-   <delete id="deleteBy"> 
-    delete from t_class
-   <where>
-					    			    					<if test="courseId != null">
-					 AND 	( course_id = #{courseId,jdbcType=INTEGER})
-									</if>
-					    			    					<if test="termId != null">
-					 AND 	( term_id = #{termId,jdbcType=INTEGER})
-									</if>
-					    			    					<if test="staffId != null">
-					 AND 	( staff_id = #{staffId,jdbcType=INTEGER})
-									</if>
-					    			    					<if test="rooma != null">
-					 AND 	( rooma = #{rooma,jdbcType=INTEGER})
-									</if>
-					    			    					<if test="totalNum != null">
-					 AND 	( total_num = #{totalNum,jdbcType=INTEGER})
-									</if>
-					    			    					<if test="enteredNum != null">
-					 AND 	( entered_num = #{enteredNum,jdbcType=INTEGER})
-									</if>
-					    			    					<if test="state != null">
-					 AND 	( state = #{state,jdbcType=VARCHAR})
-									</if>
-					    			    					<if test="timea != null">
-					 AND 	( timea = #{timea,jdbcType=INTEGER})
-									</if>
-					    			    					<if test="timeb != null">
-					 AND 	( timeb = #{timeb,jdbcType=INTEGER})
-									</if>
-					    			    					<if test="roomb != null">
-					 AND 	( roomb = #{roomb,jdbcType=INTEGER})
-									</if>
-					    			    					<if test="cname != null">
-					 AND 	( cname = #{cname,jdbcType=VARCHAR})
-									</if>
-					    			    					<if test="classId != null">
-					 AND 	( class_id = #{classId,jdbcType=INTEGER})
-									</if>
-						<if test="extraCondition != null">
+	<update id="updateByKey">
+		UPDATE t_class
+		<set>
+			<if test="courseId != null">
+				course_id=#{courseId,jdbcType=INTEGER},
+			</if>
+			<if test="termId != null">
+				term_id=#{termId,jdbcType=INTEGER},
+			</if>
+			<if test="staffId != null">
+				staff_id=#{staffId,jdbcType=INTEGER},
+			</if>
+			<if test="rooma != null">
+				rooma=#{rooma,jdbcType=INTEGER},
+			</if>
+			<if test="totalNum != null">
+				total_num=#{totalNum,jdbcType=INTEGER},
+			</if>
+			<if test="enteredNum != null">
+				entered_num=#{enteredNum,jdbcType=INTEGER},
+			</if>
+			<if test="state != null">
+				state=#{state,jdbcType=VARCHAR},
+			</if>
+			<if test="timea != null">
+				timea=#{timea,jdbcType=INTEGER},
+			</if>
+			<if test="timeb != null">
+				timeb=#{timeb,jdbcType=INTEGER},
+			</if>
+			<if test="roomb != null">
+				roomb=#{roomb,jdbcType=INTEGER},
+			</if>
+			<if test="cname != null">
+				cname=#{cname,jdbcType=VARCHAR},
+			</if>
+			<if test="classId != null">
+				class_id=#{classId,jdbcType=INTEGER},
+			</if>
+		</set>
+		WHERE class_id=#{classId,jdbcType=INTEGER}
+	</update>
+
+	<delete id="deleteByKey">
+		delete from t_class
+		WHERE class_id=#{classId,jdbcType=INTEGER}
+	</delete>
+
+	<delete id="deleteBy">
+		delete from t_class
+		<where>
+			<if test="courseId != null">
+				AND ( course_id = #{courseId,jdbcType=INTEGER})
+			</if>
+			<if test="termId != null">
+				AND ( term_id = #{termId,jdbcType=INTEGER})
+			</if>
+			<if test="staffId != null">
+				AND ( staff_id = #{staffId,jdbcType=INTEGER})
+			</if>
+			<if test="rooma != null">
+				AND ( rooma = #{rooma,jdbcType=INTEGER})
+			</if>
+			<if test="totalNum != null">
+				AND ( total_num = #{totalNum,jdbcType=INTEGER})
+			</if>
+			<if test="enteredNum != null">
+				AND ( entered_num = #{enteredNum,jdbcType=INTEGER})
+			</if>
+			<if test="state != null">
+				AND ( state = #{state,jdbcType=VARCHAR})
+			</if>
+			<if test="timea != null">
+				AND ( timea = #{timea,jdbcType=INTEGER})
+			</if>
+			<if test="timeb != null">
+				AND ( timeb = #{timeb,jdbcType=INTEGER})
+			</if>
+			<if test="roomb != null">
+				AND ( roomb = #{roomb,jdbcType=INTEGER})
+			</if>
+			<if test="cname != null">
+				AND ( cname = #{cname,jdbcType=VARCHAR})
+			</if>
+			<if test="classId != null">
+				AND ( class_id = #{classId,jdbcType=INTEGER})
+			</if>
+			<if test="extraCondition != null">
 				AND ( ${extraCondition} )
 			</if>
 		</where>
-   </delete>  
+	</delete>
 	<insert id="insert">
-    INSERT INTO t_class
-    (
- course_id
-, term_id
-, staff_id
-, rooma
-, total_num
-, entered_num
-, state
-, timea
-, timeb
-, roomb
-, cname
-, class_id
-    ) 
-    VALUES
-    (     	    	    		 #{courseId,jdbcType=INTEGER}
-			    	    		, #{termId,jdbcType=INTEGER}
-			    	    		, #{staffId,jdbcType=INTEGER}
-			    	    		, #{rooma,jdbcType=INTEGER}
-			    	    		, #{totalNum,jdbcType=INTEGER}
-			    	    		, #{enteredNum,jdbcType=INTEGER}
-			    	    		, #{state,jdbcType=VARCHAR}
-			    	    		, #{timea,jdbcType=INTEGER}
-			    	    		, #{timeb,jdbcType=INTEGER}
-			    	    		, #{roomb,jdbcType=INTEGER}
-			    	    		, #{cname,jdbcType=VARCHAR}
-			    	    		, #{classId,jdbcType=INTEGER}
-			    ) 
-   </insert>
-	
+		INSERT INTO t_class
+		(
+		course_id
+		, term_id
+		, staff_id
+		, rooma
+		, total_num
+		, entered_num
+		, state
+		, timea
+		, timeb
+		, roomb
+		, cname
+		, class_id
+		)
+		VALUES
+		( #{courseId,jdbcType=INTEGER}
+		, #{termId,jdbcType=INTEGER}
+		, #{staffId,jdbcType=INTEGER}
+		, #{rooma,jdbcType=INTEGER}
+		, #{totalNum,jdbcType=INTEGER}
+		, #{enteredNum,jdbcType=INTEGER}
+		, #{state,jdbcType=VARCHAR}
+		, #{timea,jdbcType=INTEGER}
+		, #{timeb,jdbcType=INTEGER}
+		, #{roomb,jdbcType=INTEGER}
+		, #{cname,jdbcType=VARCHAR}
+		, #{classId,jdbcType=INTEGER}
+		)
+	</insert>
+
 </mapper>

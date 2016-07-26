@@ -8,7 +8,7 @@
 				<result property="password" column="password" />
 				<result property="phone" column="phone" />
 				<result property="name" column="name" />
-				<result property="birth" column="birth" />
+				<result property="age" column="age" />
 				<result property="physical" column="physical" />
 				<result property="sex" column="sex" />
 				<result property="remainder" column="remainder" />
@@ -16,6 +16,17 @@
 				<result property="oldId" column="old_id" />
 			</resultMap>
 
+<select id="oldcheckUsername" parameterType="String" resultType="int">
+	select count(*) from t_old A where username=#{username,jdbcType=VARCHAR}
+</select>
+
+<select id="oldlogin" resultMap="TOldMap" parameterType="com.eshore.university.module.pojo.TOld">
+	SELECT 
+   *
+   FROM t_old A
+   WHERE username=#{username,jdbcType=VARCHAR} AND password=#{password,jdbcType=VARCHAR}
+   
+</select>
 	
   <select id="select" resultMap="TOldMap" useCache="true"> 
    SELECT 
@@ -34,8 +45,8 @@
 						<if test="name != null">
 			 AND  ( name = #{name,jdbcType=VARCHAR})
 								</if>
-						<if test="birth != null">
-			 AND  ( birth = #{birth,jdbcType=TIMESTAMP})
+						<if test="age != null">
+			 AND  ( age = #{age,jdbcType=INTEGER})
 								</if>
 						<if test="physical != null">
 			 AND  ( physical = #{physical,jdbcType=VARCHAR})
@@ -81,8 +92,8 @@
 						<if test="name != null">
 			 AND  ( name = #{name,jdbcType=VARCHAR})
 								</if>
-						<if test="birth != null">
-			 AND  ( birth = #{birth,jdbcType=TIMESTAMP})
+						<if test="age != null">
+			 AND  ( age = #{age,jdbcType=INTEGER})
 								</if>
 						<if test="physical != null">
 			 AND  ( physical = #{physical,jdbcType=VARCHAR})
@@ -118,8 +129,8 @@
 			    		    				<if test="name != null">
 			name=#{name,jdbcType=VARCHAR},
 			</if>
-			    		    				<if test="birth != null">
-			birth=#{birth,jdbcType=TIMESTAMP},
+			    		    				<if test="age != null">
+			age=#{age,jdbcType=INTEGER},
 			</if>
 			    		    				<if test="physical != null">
 			physical=#{physical,jdbcType=VARCHAR},
@@ -160,8 +171,8 @@
 					    			    					<if test="name != null">
 					 AND 	( name = #{name,jdbcType=VARCHAR})
 									</if>
-					    			    					<if test="birth != null">
-					 AND 	( birth = #{birth,jdbcType=TIMESTAMP})
+					    			    					<if test="age != null">
+					 AND 	( age = #{age,jdbcType=INTEGER})
 									</if>
 					    			    					<if test="physical != null">
 					 AND 	( physical = #{physical,jdbcType=VARCHAR})
@@ -190,7 +201,7 @@
 , password
 , phone
 , name
-, birth
+, age
 , physical
 , sex
 , remainder
@@ -202,7 +213,7 @@
 			    	    		, #{password,jdbcType=VARCHAR}
 			    	    		, #{phone,jdbcType=VARCHAR}
 			    	    		, #{name,jdbcType=VARCHAR}
-			    	    		, #{birth,jdbcType=TIMESTAMP}
+			    	    		, #{age,jdbcType=INTEGER}
 			    	    		, #{physical,jdbcType=VARCHAR}
 			    	    		, #{sex,jdbcType=VARCHAR}
 			    	    		, #{remainder,jdbcType=DOUBLE}

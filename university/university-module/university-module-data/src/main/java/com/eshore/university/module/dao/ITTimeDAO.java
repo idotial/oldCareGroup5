@@ -1,5 +1,7 @@
 package com.eshore.university.module.dao;
 
+import java.util.List;
+
 import com.eshore.university.module.pojo.TTime;
 import com.eshore.khala.core.data.api.dao.IBaseDao;
 /**
@@ -8,4 +10,9 @@ import com.eshore.khala.core.data.api.dao.IBaseDao;
 */
 public interface ITTimeDAO extends IBaseDao<TTime> {
 
+	/**
+	 * 返回符合除传入时间id以外的时间
+	 * @return
+	 */
+	public List<TTime> getTime(int timeid);
 }

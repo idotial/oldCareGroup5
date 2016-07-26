@@ -25,7 +25,7 @@
                 <div class="up-col-xs-12 up-col-sm-12 up-col-md-12">
                     <div class="up-row up-panel tmpl_panel tmpl_margin">
                         <div class="up-panel-heading">
-                            <span></span>
+                            <span>添加教师信息</span>
 
                             <a href="javascript:void(0);" class="tmpl_panel_close"><span class="up-icon up-icon-remove" aria-hidden="true"></span></a>
                             <a href="javascript:void(0);" class="fullscreen_btn"><span class="up-icon up-icon-resize-full" aria-hidden="true"></span></a>

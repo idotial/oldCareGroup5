@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<script src="${basePath}/resources/js/jquery.min.js"></script>
+<script src="${basePath}/resources/js/uplan.min.js"></script>
+<script src="${basePath}/resources/js/common.js"></script>
+<script>
+    $(function(){
+        $('#userLogin').click(function() {
+            $(".login-bg").css("display","block");
+        });
+        $('.userReg').click(function() {
+            $(".login-bg").css("display","none");
+            $(".reg-bg").css("display","block");
+        });
+    });
+    function checkMessage(){
+        var pwd=$("#password").val().trim();
+        var repwd=$("#repassword").val().trim();
+        if(pwd!=repwd){
+            alert("两次密码不正确");
+            return false;
+        }
+        
+        $.ajax({
+			url:"${basePath}/module/told/addOld",
+			dataType:"json",
+			async:true,
+			data:{"username":$("#inputName").val().trim(),"sex":$("#select1").val().trim(),password:pwd,
+				"name":$("#inputName1").val().trim(),"phone":$("#inputPhone").val().trim(),
+				"urgent":$("#urgent").val().trim(),"age":$("#age").val().trim(),"physical":$("#physical").val().trim()},
+			type:"POST",
+			success:function(data){
+				if(data.result=="success"){
+					alert("注册成功");
+					$(".login-bg").css("display","block");
+		            $(".reg-bg").css("display","none");
+				}else{
+					alert("注册失败");
+				}
+			}
+		});
+    }
+</script>

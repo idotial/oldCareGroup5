@@ -1,12 +1,13 @@
 package  com.eshore.university.module.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eshore.university.module.service.ITRoomService;
 import com.eshore.university.module.pojo.TRoom;
-
 import com.eshore.khala.core.data.api.dao.IBaseDao;
 import com.eshore.khala.core.service.impl.BaseServiceImpl;
 import com.eshore.university.module.dao.ITRoomDAO;
@@ -27,5 +28,10 @@ public class TRoomServiceImpl extends BaseServiceImpl<TRoom> implements ITRoomSe
 	@Override
 	public IBaseDao<TRoom> getDao() {
 		return (IBaseDao<TRoom>)troomDAO;
+	}
+
+	@Override
+	public List<TRoom> getFreeRoom(String timeid) {
+		return troomDAO.getFreeRoom(timeid);
 	}
 }

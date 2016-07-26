@@ -1,8 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 
 <%@include file="/common/common.jsp"%>
-<%@include file="/common/common-ui.jsp"%>
-<%@include file="/common/common-head.jsp" %>
+
  <!-- content start -->
   <div class="admin-content">
  	<div class="up-cf up-padding">
@@ -48,7 +47,7 @@
 														<th >password</th>
 														<th >phone</th>
 														<th >name</th>
-														<th >birth</th>
+														<th >age</th>
 														<th >physical</th>
 														<th >sex</th>
 														<th >余额</th>
@@ -67,7 +66,7 @@
 													
 																			<td >${rowdata.name}</td>
 													
-																		<td ><fmt:formatDate value="${rowdata.birth}" type="both" pattern="yyyy-MM-dd"/></td>
+																			<td >${rowdata.age}</td>
 													
 																			<td >${rowdata.physical}</td>
 													

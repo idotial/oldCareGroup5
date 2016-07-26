@@ -1,5 +1,7 @@
 package com.eshore.university.module.dao;
 
+import java.util.List;
+
 import com.eshore.university.module.pojo.TCourse;
 import com.eshore.khala.core.data.api.dao.IBaseDao;
 /**
@@ -8,4 +10,9 @@ import com.eshore.khala.core.data.api.dao.IBaseDao;
 */
 public interface ITCourseDAO extends IBaseDao<TCourse> {
 
+	/***
+	 * 获取当前状态科目信息
+	 * @return
+	 */
+	public List<TCourse> getStateCourse(String state);
 }

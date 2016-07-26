@@ -1,12 +1,13 @@
 package  com.eshore.university.module.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eshore.university.module.service.ITStaffService;
 import com.eshore.university.module.pojo.TStaff;
-
 import com.eshore.khala.core.data.api.dao.IBaseDao;
 import com.eshore.khala.core.service.impl.BaseServiceImpl;
 import com.eshore.university.module.dao.ITStaffDAO;
@@ -27,5 +28,10 @@ public class TStaffServiceImpl extends BaseServiceImpl<TStaff> implements ITStaf
 	@Override
 	public IBaseDao<TStaff> getDao() {
 		return (IBaseDao<TStaff>)tstaffDAO;
+	}
+
+	@Override
+	public List<TStaff> getTeacher() {
+		return tstaffDAO.getStaffState("在职");
 	}
 }

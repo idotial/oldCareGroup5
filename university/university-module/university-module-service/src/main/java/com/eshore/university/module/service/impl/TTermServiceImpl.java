@@ -1,12 +1,13 @@
 package  com.eshore.university.module.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eshore.university.module.service.ITTermService;
 import com.eshore.university.module.pojo.TTerm;
-
 import com.eshore.khala.core.data.api.dao.IBaseDao;
 import com.eshore.khala.core.service.impl.BaseServiceImpl;
 import com.eshore.university.module.dao.ITTermDAO;
@@ -27,5 +28,10 @@ public class TTermServiceImpl extends BaseServiceImpl<TTerm> implements ITTermSe
 	@Override
 	public IBaseDao<TTerm> getDao() {
 		return (IBaseDao<TTerm>)ttermDAO;
+	}
+
+	@Override
+	public List<String> getLastTerm() {
+		return ttermDAO.getLastTerm();
 	}
 }

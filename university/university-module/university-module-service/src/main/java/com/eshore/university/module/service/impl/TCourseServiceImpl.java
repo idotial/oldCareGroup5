@@ -1,12 +1,13 @@
 package  com.eshore.university.module.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.eshore.university.module.service.ITCourseService;
 import com.eshore.university.module.pojo.TCourse;
-
 import com.eshore.khala.core.data.api.dao.IBaseDao;
 import com.eshore.khala.core.service.impl.BaseServiceImpl;
 import com.eshore.university.module.dao.ITCourseDAO;
@@ -27,5 +28,10 @@ public class TCourseServiceImpl extends BaseServiceImpl<TCourse> implements ITCo
 	@Override
 	public IBaseDao<TCourse> getDao() {
 		return (IBaseDao<TCourse>)tcourseDAO;
+	}
+
+	@Override
+	public List<TCourse> getAllKindCourse() {
+		return this.tcourseDAO.getStateCourse("上架");
 	}
 }

@@ -1,0 +1,28 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!-- 头部  strat-->
+    <nav class="up-navbar up-navbar-default my-navbar" id="head">
+
+        <div class="up-container-fluid">
+            <div class="mylog">
+                居家养老服务平台
+            </div>
+            <ul class="up-bottom-left up-nav up-navbar-nav my-left-ul">
+                <li><a href="#">课程信息</a></li>
+                <li><a href="selectCourse.jsp">教师信息</a></li>
+                <li><a href="#">个人中心</a></li>
+            </ul>
+            <ul class="up-nav up-navbar-nav up-navbar-right my-right-ul">
+            	<c:if test="${!empty old.username }">
+            		<li><a href="javascript:void(0)">${old.username }</a></li>
+            		<li><a href="javascript:void(0)">注销</a></li>
+            	</c:if>
+            	<c:if test="${empty old.username }">
+            		<li><a href="javascript:void(0)" id="userLogin">登录</a></li>
+                <li><a href="javascript:void(0)" class="userReg">注册</a></li>
+            	</c:if>
+                
+            </ul>
+        </div>
+        <!-- /.container-fluid -->
+    </nav>

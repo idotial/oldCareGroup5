@@ -1,5 +1,7 @@
 package com.eshore.university.module.dao;
 
+import java.util.List;
+
 import com.eshore.university.module.pojo.TStaff;
 import com.eshore.khala.core.data.api.dao.IBaseDao;
 /**
@@ -8,4 +10,9 @@ import com.eshore.khala.core.data.api.dao.IBaseDao;
 */
 public interface ITStaffDAO extends IBaseDao<TStaff> {
 
+	/***
+	 * 获取状态为state的教师
+	 * @return
+	 */
+	public List<TStaff> getStaffState(String state);
 }

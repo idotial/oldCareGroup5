@@ -11,6 +11,9 @@
 				<result property="courseId" column="course_id" />
 			</resultMap>
 
+<select id="getStateCourse" resultMap="TCourseMap" parameterType="String">
+	select * from t_course A where state = #{state,jdbcType=VARCHAR}
+</select>
 	
   <select id="select" resultMap="TCourseMap" useCache="true"> 
    SELECT 

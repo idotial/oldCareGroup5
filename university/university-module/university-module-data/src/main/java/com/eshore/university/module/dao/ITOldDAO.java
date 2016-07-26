@@ -1,5 +1,7 @@
 package com.eshore.university.module.dao;
 
+import java.util.List;
+
 import com.eshore.university.module.pojo.TOld;
 import com.eshore.khala.core.data.api.dao.IBaseDao;
 /**
@@ -8,4 +10,6 @@ import com.eshore.khala.core.data.api.dao.IBaseDao;
 */
 public interface ITOldDAO extends IBaseDao<TOld> {
 
+	public List<TOld> getOldsByProperty(TOld t);
+	public int countUsername(String username);
 }

@@ -10,6 +10,10 @@
 				<result property="timeId" column="time_id" />
 			</resultMap>
 
+<select id="selectTime" resultMap="TTimeMap" parameterType="int">
+	select * from t_time a
+		WHERE time_id != #{timeid,jdbcType=INTEGER}
+</select>
 	
   <select id="select" resultMap="TTimeMap" useCache="true"> 
    SELECT 

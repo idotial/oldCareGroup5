@@ -20,7 +20,7 @@ public class TOld implements Serializable {
 	private String password;//
 	private String phone;//
 	private String name;//
-	private Date birth;//
+	private Integer age;//
 	private String physical;//
 	private String sex;//
 	private Double remainder;//余额
@@ -74,14 +74,13 @@ public class TOld implements Serializable {
 		this.name = name;
     }
     
-    @Temporal(value =TemporalType.DATE)
-	@Column(name="birth" , length=10)
-    public Date getBirth() {
-		return birth;
+	@Column(name="age" , length=10)
+    public Integer getAge() {
+		return age;
     }
     
-    public void setBirth(Date birth) {
-		this.birth = birth;
+    public void setAge(Integer age) {
+		this.age = age;
     }
     
 	@Column(name="physical" , length=50)

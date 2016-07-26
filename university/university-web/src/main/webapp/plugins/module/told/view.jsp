@@ -37,9 +37,9 @@
 													${model.name}
 											</td>
 				</tr>
-															<td class="form_label">birth:</td>	
+															<td class="form_label">age:</td>	
 										<td class="form_value">
-													<fmt:formatDate value="${model.birth}" type="both" pattern="yyyy-MM-dd"/>
+													${model.age}
 											</td>
 															<td class="form_label">physical:</td>	
 										<td class="form_value2">

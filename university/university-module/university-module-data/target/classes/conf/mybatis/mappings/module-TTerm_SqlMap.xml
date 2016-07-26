@@ -11,6 +11,10 @@
 			</resultMap>
 
 	
+	<select id="getLastTerm" resultType="com.eshore.university.module.pojo.TTerm">
+		select * from t_term A order by term_id DESC
+	</select>
+	
   <select id="select" resultMap="TTermMap" useCache="true"> 
    SELECT 
    *

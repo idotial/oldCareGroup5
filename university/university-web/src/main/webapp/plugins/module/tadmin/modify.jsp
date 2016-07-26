@@ -87,8 +87,10 @@
 		var v = $("#password").val();
 		if(v == ''){
 			$("#password").val($("#pwd").val());
-			var dat = new Date();
-			$("#createTime").val(dat.toLocaleDateString());
+			var dat = new Date().toLocaleDateString();
+			dat = dat.replace("/", "-");
+			dat = dat.replace("/", "-");
+			$("#createTime").val(dat);
 			return true;
 		}else{
 			if(window.confirm("确定修改密码？")){

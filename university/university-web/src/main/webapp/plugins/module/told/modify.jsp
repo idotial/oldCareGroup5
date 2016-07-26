@@ -46,9 +46,9 @@
 					 						</td>
 					
 									</tr>
-															 <td class="td_right">birth</td>
-					 					 <td class=""><input id="birth" name="birth"  type="text" class="input-text lh30" 
-					 						 		value="<fmt:formatDate value="${model.birth}" type="both" pattern="yyyy-MM-dd"/>" data-up-datepicker="{format: 'yyyy-mm-dd'}" readonly />
+															 <td class="td_right">age</td>
+					 					 <td class=""><input id="age" name="age"  type="text" class="input-text lh30" 
+					 						 		value="${model.age}" />	
 					 						</td>
 					
 															 <td class="td_right">physical</td>
@@ -77,8 +77,8 @@
 					                 <tr>
 	                   <td class="td_right">&nbsp;</td>
 	                   <td class="">
-	                     <input type="submit" name="button" class="btn" id="modle_save" value="保存"> 
-	                    <input type="reset" name="button" class="btn" value="重置"> 
+	                     <input type="button" name="button" class="btn" id="modle_save" value="保存"> 
+	                    <input type="button" name="button" class="btn" value="重置"> 
 	                   </td>
 	                 </tr>
 	               </table>

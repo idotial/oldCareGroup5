@@ -23,10 +23,9 @@
        <div class="up-row tmpl_mar20">
            <div class="up-col-xs-12 up-col-sm-12 up-col-md-12">
                <div class="up-row up-panel tmpl_panel tmpl_margin">
-               <div class="up-g">
-				<div class="up-u-md-6 up-cf">
-					<div class="up-fl up-cf">
-						<div class="up-btn-toolbar up-fl">
+                   <div class="up-panel-heading">
+                       <span>学期管理</span>
+							<br>
 							<div class="up-btn-group up-btn-group-xs">
 								<button type="button" id="list_add" class="up-btn up-btn-default">
 									<span class="up-icon-plus"></span> 新增
@@ -43,13 +42,6 @@
 									<span class="up-icon-trash-o"></span> 删除
 								</button>
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-                   <div class="up-panel-heading">
-                       <span>学期管理</span>
-
                        <a href="javascript:void(0);" class="tmpl_panel_close"><span class="up-icon up-icon-remove" aria-hidden="true"></span></a>
                        <a href="javascript:void(0);" class="fullscreen_btn"><span class="up-icon up-icon-resize-full" aria-hidden="true"></span></a>
                        <a href="#tmpl_panel_con" class="collapse_btn" data-toggle="collapse"><span class="up-icon up-icon-chevron-down" aria-hidden="true"></span></a>

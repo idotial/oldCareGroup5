@@ -1,11 +1,11 @@
 package com.eshore.university.module.pojo;
 
-import javax.persistence.*;
-
-import org.hibernate.annotations.GenericGenerator;
-
 import java.io.Serializable;
-import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * Auto Generated Entity

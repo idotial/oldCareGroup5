@@ -15,7 +15,12 @@
 				<result property="staffId" column="staff_id" />
 			</resultMap>
 
+
+  <select id="getStaffByState" parameterType="String" resultMap="TStaffMap">
+  	SELECT * from t_staff a where a.state = #{state,jdbcType=VARCHAR}
+  </select>
 	
+
   <select id="select" resultMap="TStaffMap" useCache="true"> 
    SELECT 
    *
